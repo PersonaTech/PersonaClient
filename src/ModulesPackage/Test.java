@@ -6,6 +6,8 @@ package ModulesPackage;
 
 public class Test {
 
+    private static final long serialVersionUID = 1129L;
+
     private String testId;
     private String socialWorkerId;
     private String childId;

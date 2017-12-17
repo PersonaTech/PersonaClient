@@ -13,16 +13,17 @@
             fx:controller="sample.AddTreeTestDiagnosticController">
 
     <top>
-        <VBox alignment="CENTER" translateY="10">
+        <VBox alignment="CENTER">
             <Label text="Add Tree Test Diagnostic" >
                 <font> <Font size="30" ></Font> </font>
             </Label>
         </VBox>
+
     </top>
 
     <center>
 
-        <VBox alignment="CENTER" maxWidth="600" spacing="7">
+        <VBox alignment="CENTER" maxWidth="400" spacing="7">
 
             <Label text="Choose the size of the tree relative to the page" > </Label>
             <Slider fx:id="treeSizePercentageSlider" min="0" max="100" value="50" showTickLabels="true" showTickMarks="true" > </Slider>
@@ -55,10 +56,31 @@
                 </items>
             </ComboBox>
 
-
         </VBox>
 
     </center>
+
+    <left>
+
+        <VBox alignment="CENTER" maxWidth="400">
+
+            <Label text="choose child..."></Label>
+            <ComboBox maxWidth="400">
+
+            </ComboBox>
+
+            <Label text="choose picture..."></Label>
+            <ComboBox maxWidth="400">
+
+            </ComboBox>
+
+        </VBox>
+
+
+
+
+
+    </left>
 
     <bottom>
 

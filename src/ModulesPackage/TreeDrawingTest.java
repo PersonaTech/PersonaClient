@@ -5,6 +5,8 @@ package ModulesPackage;
  */
 public class TreeDrawingTest extends Test{
 
+    private static final long serialVersionUID = 1149L;
+
     // ======================  Quantitative variables =========================
 
     private int treeSizePercentage;

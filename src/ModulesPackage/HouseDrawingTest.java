@@ -8,6 +8,8 @@ package ModulesPackage;
 
 public class HouseDrawingTest /*extends Test*/{
 
+    private static final long serialVersionUID = 1119L;
+
 
     // ======================  Quantitative variables =========================
 
