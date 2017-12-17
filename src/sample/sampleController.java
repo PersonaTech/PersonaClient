@@ -1,4 +1,6 @@
 package sample;
+import ModulesPackage.Employee;
+import ModulesPackage.LoginClass;
 import com.sun.javafx.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -27,8 +29,22 @@ public class sampleController {
 
     // UI call automatically to the "public void initilize() " function when loaded
     @FXML
-    public void initialize(){
+    public void initialize() {
         //loginButton.setDisable(true); // at the beginnings disable the login button until filled all required fields
+
+
+        try {
+            PersonaSocket personaSocket = new PersonaSocket();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        usernameField.setText("personaproject@gmail.com");
+        passwordField.setText("123456");
+
+
+
+
     }
 
     @FXML
@@ -38,76 +54,116 @@ public class sampleController {
 
         System.out.println(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  ");
 
-        //System.out.println("Event::: " + event.getSource());
-        System.out.println("Login details::: Username: " + usernameField.getText() + " | " + "Password: " + passwordField.getText() );
-        System.out.println("remember me: " + rememberMeField.isSelected());
+//        System.out.println("Login details::: Username: " + usernameField.getText() + " | " + "Password: " + passwordField.getText() );
+//        System.out.println("remember me: " + rememberMeField.isSelected());
 
-        if(usernameField.getText().equals(""))
-            System.out.println("Username field is required!");
-        else if (passwordField.getText().equals(""))
-            System.out.println("Password field is required!");
-        else
-            System.out.println("Successfully login!");
+//        if(usernameField.getText().equals(""))
+//            System.out.println("Username field is required!");
+//        else if (passwordField.getText().equals(""))
+//            System.out.println("Password field is required!");
+//        else
+//            System.out.println("Successfully login!");
 
-            // TODO: 09/12/2017 take the username and the password and wrapper them to LoginClass
+//          boolean loginFieldsChecker = usernameField.getText().
 
 
-            System.out.println(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  ");
+
+        LoginClass user = new LoginClass(usernameField.getText() , passwordField.getText());
+
+        System.out.println(user.toString());
+
+
+        System.out.println(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  ");
 
 
 
         try {
 
-            if(usernameField.getText().equals("admin")) {
+            PersonaSocket.objectOutputStream.writeObject("login");
 
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("ManagerMenuScreen.fxml"));
+            PersonaSocket.objectOutputStream.writeObject(user);
+
+            String authResponse = (String) PersonaSocket.objectInputStream.readObject();
+
+            if (authResponse.equals(PersonaSocket.SUCCESS)){
+
+                System.out.println("Login Successfully!!!");
+
+                Employee currentEmployee = (Employee) PersonaSocket.objectInputStream.readObject();
+
+                System.out.println("Current Employee : " + currentEmployee.toString());
+
+                if (currentEmployee.getUserType().equals("Manager")) {
 
 
-                Stage stage = new Stage();
-                stage.setTitle("Manager Menu");
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("ManagerMenuScreen.fxml"));
 
-                stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
 
-                ManagerMenuScreenController controller = fxmlLoader.<ManagerMenuScreenController>getController();
+                    Stage stage = new Stage();
+                    stage.setTitle("Manager Menu");
 
-                controller.initData("hello from login");
+                    stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
 
-                stage.show();
+                    ManagerMenuScreenController controller = fxmlLoader.<ManagerMenuScreenController>getController();
 
-                ((Node) (event.getSource())).getScene().getWindow().hide();
+                    controller.initData("hello from login");
+
+                    stage.show();
+
+                    ((Node) (event.getSource())).getScene().getWindow().hide();
+
+
+
+                }else if (currentEmployee.getUserType().equals("SocialWorker")){
+
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("SocialWorkerMenuScreen.fxml"));
+
+
+                    Stage stage = new Stage();
+                    stage.setTitle("Social Worker Menu");
+
+                    stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+
+                    SocialWorkerMenuScreenController controller = fxmlLoader.<SocialWorkerMenuScreenController>getController();
+
+                    controller.initData("hello from login");
+
+                    stage.show();
+
+                    ((Node) (event.getSource())).getScene().getWindow().hide();
+
+
+                }else {
+                    System.out.println("problem !");
+                }
+
+            }else if (authResponse.equals(PersonaSocket.FAIL)){
+
+
+
+                System.out.println("wrong username or password !");
+
+                // TODO: 17/12/2017 add screen for alert!!!
+
+
+
 
             }else {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("SocialWorkerMenuScreen.fxml"));
-
-
-                Stage stage = new Stage();
-                stage.setTitle("Social Worker Menu");
-
-                stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
-
-                SocialWorkerMenuScreenController controller = fxmlLoader.<SocialWorkerMenuScreenController>getController();
-
-                controller.initData("hello from login");
-
-                stage.show();
-
-                ((Node) (event.getSource())).getScene().getWindow().hide();
-
-
+                System.out.println("problem no good or bad!!!!");
             }
+
 
 
         } catch (IOException e) {
 
             e.printStackTrace();
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
         }
-
-
-
-
 
 
     }

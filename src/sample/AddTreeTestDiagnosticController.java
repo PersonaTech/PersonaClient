@@ -31,6 +31,8 @@ public class AddTreeTestDiagnosticController {
     public Button submitAddNewDiagnostic;
     @FXML
     public Button exit;
+    public ComboBox childIdCB;
+    public ComboBox pictureIdCB;
 
     public void onSubmitButtonClicked(ActionEvent event) {
 

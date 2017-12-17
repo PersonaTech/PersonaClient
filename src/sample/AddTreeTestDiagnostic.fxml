@@ -67,20 +67,37 @@
 
     <left>
 
-        <VBox alignment="CENTER" maxWidth="400">
+        <VBox alignment="CENTER" maxWidth="300" spacing="30">
 
             <Label text="choose child..."></Label>
-            <ComboBox maxWidth="400">
-
-
-
+            <ComboBox fx:id="childIdCB" promptText="choose child... " prefWidth="300" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <!--<String fx:value="Right" />-->
+                        <!--<String fx:value="Left" />-->
+                        <!--<String fx:value="Center" />-->
+                        <!--<String fx:value="Top" />-->
+                        <!--<String fx:value="Bottom" />-->
+                    </FXCollections>
+                </items>
 
             </ComboBox>
 
 
 
             <Label text="choose picture..."></Label>
-            <ComboBox maxWidth="400">
+            <ComboBox fx:id="pictureIdCB" promptText="choose picture" prefWidth="300">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <!--<String fx:value="Right" />-->
+                        <!--<String fx:value="Left" />-->
+                        <!--<String fx:value="Center" />-->
+                        <!--<String fx:value="Top" />-->
+                        <!--<String fx:value="Bottom" />-->
+                    </FXCollections>
+                </items>
+
+
 
             </ComboBox>
 

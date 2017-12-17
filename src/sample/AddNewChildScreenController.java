@@ -30,6 +30,8 @@ public class AddNewChildScreenController {
     @FXML
     private Button submitAddNewChild;
 
+
+
     @FXML
     public void initialize(){
         System.out.println("ok the add new child is open now" );
