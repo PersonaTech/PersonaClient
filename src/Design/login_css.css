@@ -1,0 +1,11 @@
+GridPane {
+    -fx-background-color:dimgrey;
+    -fx-border-color: black;
+}
+
+Label ,CheckBox{
+    -fx-text-fill: white;
+    -fx-font-size: 12;
+    -fx-font-family: "Comic Sans MS";
+    /*-fx-font-weight: bold;*/
+}

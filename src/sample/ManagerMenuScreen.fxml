@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.ManagerMenuScreenController">
+
+    <top>
+
+        <GridPane alignment="center"  vgap="20" gridLinesVisible="false">
+
+            <padding><Insets top="40" /></padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"></ColumnConstraints>
+                <ColumnConstraints percentWidth="50"></ColumnConstraints>
+
+            </columnConstraints>
+
+            <Label text="Create a .. " GridPane.rowIndex="0" GridPane.columnIndex="0" >
+                <font>
+                    <Font size="30"  ></Font>
+                </font>
+            </Label>
+            <Button fx:id="addSwButton" text="Create new Social Worker" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER" ></Button>
+            <Button fx:id="addChildButton" text="Create new Child"  prefHeight="40"  prefWidth="270"  onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="CENTER"> </Button>
+
+
+            <Label text="Watch on .. " GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <font>
+                    <Font size="30" ></Font>
+                </font>
+            </Label>
+
+            <Button fx:id="watchPerformanceButton" text="Watch Performance" prefHeight="40" prefWidth="270"   onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" ></Button>
+            <Button fx:id="watchDiagnosticsButton" text="Watch Workers Diagnostics" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
+            <Button fx:id="watchAutoDiagnosticsButton" text="Watch Auto Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
+            <Button fx:id="addTreeDiagnosticsButton" text="Create tree Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"
+                    GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
+
+        </GridPane>
+
+
+    </top>
+
+    <bottom >
+
+        <VBox alignment="BOTTOM_RIGHT">
+
+            <Button fx:id="exitButton" text="Exit" prefHeight="40" prefWidth="200" onAction="#onMenuButtonClicked" > </Button>
+
+        </VBox>
+
+    </bottom>
+
+
+
+    <left>
+
+    </left>
+
+    <center>
+
+    </center>
+
+
+
+</BorderPane>

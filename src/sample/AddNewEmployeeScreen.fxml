@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.AddNewEmployeeScreenController"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+
+    <top>
+        <VBox alignment="CENTER" translateY="10">
+            <Label text="Add new Employee" >
+                <font> <Font size="30" ></Font> </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox alignment="CENTER" maxWidth="400" spacing="7" translateX="70" translateY="-60">
+
+            <Label text="Username ( Email address ) " > </Label>
+            <TextField fx:id="usernameTF" promptText="" ></TextField>
+
+            <Label text="Password" > </Label>
+             <TextField fx:id="passwordTF" promptText="" ></TextField>
+
+        </VBox>
+    </left>
+
+    <center>
+
+        <VBox alignment="CENTER" maxWidth="400" spacing="7">
+
+            <Label text="First name" > </Label>
+            <TextField fx:id="fNameTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="Last Name" > </Label>
+            <TextField fx:id="lNameTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="Id" > </Label>
+            <TextField fx:id="idTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="Age" > </Label>
+            <TextField fx:id="ageTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="Address" > </Label>
+            <TextField fx:id="addressTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="Phone Number" > </Label>
+            <TextField fx:id="phoneNumberTF" promptText="" alignment="CENTER" ></TextField>
+
+            <Label text="County" > </Label>
+            <ComboBox fx:id="countyTF" promptText="select the county of the child ... " prefWidth="400" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="South" />
+                        <String fx:value="Center" />
+                        <String fx:value="North" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+
+        </VBox>
+
+    </center>
+
+    <right>
+
+
+    </right>
+
+    <bottom>
+
+        <VBox alignment="CENTER" translateY="-10">
+
+            <Button fx:id="submitAddNewEmployee"  alignment="CENTER" text="Add Employee" onAction="#onSubmitButtonClicked"> </Button>
+
+        </VBox>
+
+    </bottom>
+
+
+</BorderPane>
