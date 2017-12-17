@@ -23,7 +23,7 @@ public class PersonaSocket {
 
     public PersonaSocket() throws IOException {
 
-        Socket socket = new Socket(LOCALHOST, 8080);
+        Socket socket = new Socket(SERVER, 8080);
 
         objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 

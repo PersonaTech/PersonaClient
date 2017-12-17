@@ -27,11 +27,12 @@ public class sampleController {
     @FXML
     private Button loginButton;
 
-    // UI call automatically to the "public void initilize() " function when loaded
+
     @FXML
     public void initialize() {
-        //loginButton.setDisable(true); // at the beginnings disable the login button until filled all required fields
 
+
+        //loginButton.setDisable(true); // at the beginnings disable the login button until filled all required fields
 
         try {
             PersonaSocket personaSocket = new PersonaSocket();
@@ -39,10 +40,13 @@ public class sampleController {
             e.printStackTrace();
         }
 
-        usernameField.setText("personaproject@gmail.com");
+        // usernameField.setText("personaproject@gmail.com");
+
+        // OR
+
+        usernameField.setText("per@gmail.com");
+
         passwordField.setText("123456");
-
-
 
 
     }
@@ -52,45 +56,39 @@ public class sampleController {
 
         //System.out.println(event.getSource().equals(loginButton));
 
-        System.out.println(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  ");
+        System.out.println("=================================================================");
 
-//        System.out.println("Login details::: Username: " + usernameField.getText() + " | " + "Password: " + passwordField.getText() );
-//        System.out.println("remember me: " + rememberMeField.isSelected());
+        boolean loginFieldsChecker =
+                  usernameField.getText().isEmpty() || usernameField.getText().trim().isEmpty() ||
+                          passwordField.getText().isEmpty() || passwordField.getText().trim().isEmpty();
 
-//        if(usernameField.getText().equals(""))
-//            System.out.println("Username field is required!");
-//        else if (passwordField.getText().equals(""))
-//            System.out.println("Password field is required!");
-//        else
-//            System.out.println("Successfully login!");
+        if (loginFieldsChecker){
+            System.out.println("username and password is required");
+        }
 
-//          boolean loginFieldsChecker = usernameField.getText().
-
-
+        System.out.println("remember me: " + rememberMeField.isSelected());
 
         LoginClass user = new LoginClass(usernameField.getText() , passwordField.getText());
 
         System.out.println(user.toString());
 
 
-        System.out.println(" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  ");
+        System.out.println("=================================================================");
 
 
 
         try {
 
             PersonaSocket.objectOutputStream.writeObject("login");
-
             PersonaSocket.objectOutputStream.writeObject(user);
 
             String authResponse = (String) PersonaSocket.objectInputStream.readObject();
 
             if (authResponse.equals(PersonaSocket.SUCCESS)){
 
-                System.out.println("Login Successfully!!!");
+                System.out.println("Login Successfully !!!");
 
                 Employee currentEmployee = (Employee) PersonaSocket.objectInputStream.readObject();
-
                 System.out.println("Current Employee : " + currentEmployee.toString());
 
                 if (currentEmployee.getUserType().equals("Manager")) {
@@ -98,7 +96,6 @@ public class sampleController {
 
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("ManagerMenuScreen.fxml"));
-
 
                     Stage stage = new Stage();
                     stage.setTitle("Manager Menu");
@@ -120,7 +117,6 @@ public class sampleController {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("SocialWorkerMenuScreen.fxml"));
 
-
                     Stage stage = new Stage();
                     stage.setTitle("Social Worker Menu");
 
@@ -136,21 +132,18 @@ public class sampleController {
 
 
                 }else {
-                    System.out.println("problem !");
+
+                    System.out.println("problem!");
                 }
 
             }else if (authResponse.equals(PersonaSocket.FAIL)){
-
-
 
                 System.out.println("wrong username or password !");
 
                 // TODO: 17/12/2017 add screen for alert!!!
 
-
-
-
             }else {
+
                 System.out.println("problem no good or bad!!!!");
             }
 

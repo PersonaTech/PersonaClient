@@ -29,15 +29,14 @@
 
             <Label text="Kindergarten name" > </Label>
             <ComboBox fx:id="kNameFT" promptText="select the kindergarten of the child ... " prefWidth="400" >
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="A" />
-                        <String fx:value="B" />
-                        <String fx:value="C" />
-                        <String fx:value="D" />
-                    </FXCollections>
-                    
-                </items>
+                <!--<items>-->
+                    <!--<FXCollections fx:factory="observableArrayList">-->
+                        <!--<String fx:value="A" />-->
+                        <!--<String fx:value="B" />-->
+                        <!--<String fx:value="C" />-->
+                        <!--<String fx:value="D" />-->
+                    <!--</FXCollections>-->
+                <!--</items>-->
             </ComboBox>
 
             <Label text="First name" > </Label>

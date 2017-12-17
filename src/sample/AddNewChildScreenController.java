@@ -1,12 +1,14 @@
 package sample;
 
 import ModulesPackage.Child;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 
 
 /**
@@ -34,7 +36,25 @@ public class AddNewChildScreenController {
 
     @FXML
     public void initialize(){
+
+
         System.out.println("ok the add new child is open now" );
+
+        String[] Kindergarten = {"A" , "B" , "C" };
+
+        try {
+            PersonaSocket.objectOutputStream.writeObject("Add child");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        kNameFT.setItems(FXCollections.observableArrayList(Kindergarten));
+
+
+
+
+
     }
 
     public void onSubmitButtonClicked(ActionEvent event) {
