@@ -3,12 +3,7 @@ package sample;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -17,7 +12,6 @@ import java.io.IOException;
 public class ManagerMenuScreenController {
 
     private Stage refToParent;
-
     @FXML
     private Button addSwButton;
     @FXML
@@ -30,8 +24,6 @@ public class ManagerMenuScreenController {
     private Button watchAutoDiagnosticsButton;
     @FXML
     private Button exitButton;
-
-    public Boolean EXIT = false;
 
     @FXML
     public void initialize(){
@@ -47,34 +39,35 @@ public class ManagerMenuScreenController {
     public void onMenuButtonClicked(Event event){
 
         if (event.getSource().equals(addSwButton)){
+
             System.out.println("1");
             lunchSwScreen(event);
 
         }else if(event.getSource().equals(addChildButton)){
+
             System.out.println("2");
             lunchChildScreen(event);
 
         }else if(event.getSource().equals(watchPerformanceButton)){
+
             System.out.println("3");
             lunchWatchPerformanceScreen(event);
 
         }else if(event.getSource().equals(watchDiagnosticsButton)){
+
             System.out.println("4");
             lunchWorkersDiagnosticsScreen(event);
 
         }else if(event.getSource().equals(watchAutoDiagnosticsButton)){
+
             System.out.println("5");
             lunchAlgorithmsDiagnosticsScreen(event);
 
         }else if(event.getSource().equals(exitButton)){
 
             System.out.println("6");
-
             ((Stage)exitButton.getScene().getWindow()).close();
-
             this.refToParent.show();
-
-
 
         }
 
@@ -141,7 +134,6 @@ public class ManagerMenuScreenController {
 
     public void lunchWatchPerformanceScreen(Event event){
 
-
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -201,6 +193,28 @@ public class ManagerMenuScreenController {
 
     private void lunchAlgorithmsDiagnosticsScreen(Event event) {
 
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("WatchAlgoDiagnostics.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("watch diagnostics - algo");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+
+            WatchAlgoDiagnosticsController controller = fxmlLoader.<WatchAlgoDiagnosticsController>getController();
+            controller.initData((Stage) watchAutoDiagnosticsButton.getScene().getWindow());
+
+            watchAutoDiagnosticsButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
 
 
 

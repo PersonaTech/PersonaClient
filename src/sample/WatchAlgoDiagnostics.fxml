@@ -6,9 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.WatchAlgoDiagnosticsController"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:id="borderPaneWatch">
 
-</AnchorPane>
+    <bottom>
+        <HBox alignment="CENTER" translateY="-10">
+            <Button fx:id="ShowButton" text="Show Performance" prefHeight="40" prefWidth="270"  onAction="#onShowButtonClicked" ></Button>
+            <Button fx:id="ExitButton" text="Exit" prefHeight="40" prefWidth="270"  onAction="#onExitButtonClicked" ></Button>
+        </HBox>
+    </bottom>
+
+
+</BorderPane>

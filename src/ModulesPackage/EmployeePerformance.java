@@ -4,6 +4,7 @@ package ModulesPackage;
  * Created by itamarfredavrahami on 14/01/2018.
  */
 public class EmployeePerformance {
+    private static final long serialVersionUID = 1393L;
 
     private String EmpUid ;
 
@@ -15,6 +16,17 @@ public class EmployeePerformance {
 
     private int HouseDiagCounter;
 
+    public EmployeePerformance() {
+
+    }
+
+    public EmployeePerformance(String empUid, String empName, int treeDiagCounter, int personDiagCounter, int houseDiagCounter) {
+        EmpUid = empUid;
+        EmpName = empName;
+        TreeDiagCounter = treeDiagCounter;
+        PersonDiagCounter = personDiagCounter;
+        HouseDiagCounter = houseDiagCounter;
+    }
     public String getEmpUid() {
         return EmpUid;
     }
@@ -67,4 +79,5 @@ public class EmployeePerformance {
                 '}';
 
     }
+
 }

@@ -7,10 +7,28 @@
 <?import javafx.scene.layout.*?>
 
 
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.WatchWorkersDiagnosticsController"
             fx:id="borderPaneWatch">
+
+
+    <left>
+
+        <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
+
+            <Label text="Choose social worker"></Label>
+            <ComboBox fx:id="swCB" promptText="select social worker ... " prefWidth="400" >
+            </ComboBox>
+
+            <Label text="Choose painting"></Label>
+            <ComboBox fx:id="pCB" promptText="select painting... " prefWidth="400" >
+            </ComboBox>
+
+        </VBox>
+
+    </left>
 
     <bottom>
         <HBox alignment="CENTER" translateY="-10">
