@@ -4,7 +4,7 @@ package ModulesPackage;
  * Created by itamarfredavrahami on 14/01/2018.
  */
 public class EmployeePerformance {
-    private static final long serialVersionUID = 1393L;
+    private static final long serialVersionUID = 1997L;
 
     private String EmpUid ;
 
