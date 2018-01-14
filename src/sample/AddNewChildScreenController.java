@@ -7,15 +7,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by itamarfredavrahami on 08/12/2017.
  */
+
 public class AddNewChildScreenController {
 
+    private Stage refToParent;
+
+    @FXML
+    public Button exitButton;
 
     @FXML
     private ComboBox<String> kNameFT;
@@ -33,27 +40,41 @@ public class AddNewChildScreenController {
     private Button submitAddNewChild;
 
 
-
     @FXML
     public void initialize(){
 
-
         System.out.println("ok the add new child is open now" );
 
-        String[] Kindergarten = {"A" , "B" , "C" };
+        List<String> kindergartenList = new ArrayList<>();
+
 
         try {
-            PersonaSocket.objectOutputStream.writeObject("Add child");
+
+            PersonaSocket.objectOutputStream.writeObject("get Kindergartens");
+
+            kindergartenList = (ArrayList<String>) PersonaSocket.objectInputStream.readObject();
+
+            if(! kindergartenList.isEmpty()) {
+
+                kNameFT.setItems(FXCollections.observableArrayList(kindergartenList));
+
+            }else {
+
+                System.out.println("failed to load kindergartens");
+            }
+
+
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
+    }
 
-        kNameFT.setItems(FXCollections.observableArrayList(Kindergarten));
+    public void initData(Stage refToParent){
 
-
-
-
+        this.refToParent = refToParent;
 
     }
 
@@ -79,6 +100,7 @@ public class AddNewChildScreenController {
 
         } else {
 
+
             Child child = new Child(kNameFT.getSelectionModel().selectedItemProperty().getValue(),
             fNameTF.getText().toString()+" " +lNameTF.getText().toString() ,
                     Integer.parseInt(ageTF.getText().toString()) ,
@@ -87,6 +109,29 @@ public class AddNewChildScreenController {
             );
 
             System.out.println(child.toString());
+
+
+            try {
+                PersonaSocket.objectOutputStream.writeObject("Add child");
+                PersonaSocket.objectOutputStream.writeObject(child);
+
+                String authResponse = (String)PersonaSocket.objectInputStream.readObject();
+
+                if (authResponse.equals(PersonaSocket.SUCCESS)){
+
+                    System.out.println("added child successfully!!!");
+
+                }else if (authResponse.equals(PersonaSocket.FAIL)) {
+
+                    System.out.println("added child failed!!!");
+
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
 
         }
@@ -102,15 +147,12 @@ public class AddNewChildScreenController {
     }
 
 
+    public void onExitButtonClicked(ActionEvent actionEvent) {
+
+        ((Stage)exitButton.getScene().getWindow()).close();
+
+        this.refToParent.show();
 
 
-
-
-
-
-
-
-
-
-
+    }
 }

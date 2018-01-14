@@ -70,11 +70,13 @@
 
     <bottom>
 
-        <VBox alignment="CENTER" translateY="-10">
+        <HBox alignment="CENTER" translateY="-10">
 
             <Button fx:id="submitAddNewChild"  alignment="CENTER" text="Add Child" onAction="#onSubmitButtonClicked"> </Button>
 
-        </VBox>
+            <Button fx:id="exitButton" text="Exit"  onAction="#onExitButtonClicked" > </Button>
+
+        </HBox>
 
     </bottom>
 

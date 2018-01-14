@@ -28,11 +28,14 @@ public class sampleController {
     private Button loginButton;
 
 
+
     @FXML
     public void initialize() {
 
 
-        //loginButton.setDisable(true); // at the beginnings disable the login button until filled all required fields
+        //loginButton.setDisable(true);
+        // at the beginnings disable the login button until filled all required fields
+
 
         try {
             PersonaSocket personaSocket = new PersonaSocket();
@@ -40,7 +43,10 @@ public class sampleController {
             e.printStackTrace();
         }
 
+
         // usernameField.setText("personaproject@gmail.com");
+
+        // passwordField.setText("123456");
 
         // OR
 
@@ -52,9 +58,7 @@ public class sampleController {
     }
 
     @FXML
-    public void onLoginButtonClicked(ActionEvent event){
-
-        //System.out.println(event.getSource().equals(loginButton));
+    public void onLoginButtonClicked(ActionEvent event) {
 
         System.out.println("=================================================================");
 
@@ -72,7 +76,6 @@ public class sampleController {
 
         System.out.println(user.toString());
 
-
         System.out.println("=================================================================");
 
 
@@ -84,6 +87,7 @@ public class sampleController {
 
             String authResponse = (String) PersonaSocket.objectInputStream.readObject();
 
+
             if (authResponse.equals(PersonaSocket.SUCCESS)){
 
                 System.out.println("Login Successfully !!!");
@@ -93,24 +97,21 @@ public class sampleController {
 
                 if (currentEmployee.getUserType().equals("Manager")) {
 
-
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("ManagerMenuScreen.fxml"));
 
                     Stage stage = new Stage();
                     stage.setTitle("Manager Menu");
 
+
                     stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
 
+
                     ManagerMenuScreenController controller = fxmlLoader.<ManagerMenuScreenController>getController();
+                    controller.initData((Stage) loginButton.getScene().getWindow());
 
-                    controller.initData("hello from login");
-
+                    loginButton.getScene().getWindow().hide();
                     stage.show();
-
-                    ((Node) (event.getSource())).getScene().getWindow().hide();
-
-
 
                 }else if (currentEmployee.getUserType().equals("SocialWorker")){
 
@@ -123,17 +124,16 @@ public class sampleController {
                     stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
 
                     SocialWorkerMenuScreenController controller = fxmlLoader.<SocialWorkerMenuScreenController>getController();
-
                     controller.initData("hello from login");
 
+                    loginButton.getScene().getWindow().hide();
                     stage.show();
-
-                    ((Node) (event.getSource())).getScene().getWindow().hide();
 
 
                 }else {
 
-                    System.out.println("problem!");
+                    System.out.println("undefined employee type!");
+
                 }
 
             }else if (authResponse.equals(PersonaSocket.FAIL)){
@@ -144,7 +144,7 @@ public class sampleController {
 
             }else {
 
-                System.out.println("problem no good or bad!!!!");
+                System.out.println("some error occurred !");
             }
 
 
@@ -157,7 +157,6 @@ public class sampleController {
 
             e.printStackTrace();
         }
-
 
     }
 

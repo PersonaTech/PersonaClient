@@ -41,7 +41,7 @@ public class SocialWorkerMenuScreenController {
     }
 
     public void initData(String message ){
-        //System.out.println(message);
+
     }
 
     public void onMenuButtonClicked(ActionEvent event) {

@@ -80,13 +80,17 @@
 
     <bottom>
 
-        <VBox alignment="CENTER" translateY="-10">
+        <HBox alignment="CENTER" translateY="-10" >
 
-            <Button fx:id="submitAddNewEmployee"  alignment="CENTER" text="Add Employee" onAction="#onSubmitButtonClicked"> </Button>
+            <Button fx:id="submitAddNewEmployee"  text="Add Employee" onAction="#onSubmitButtonClicked"> </Button>
 
-        </VBox>
+            <Button fx:id="exitButton" text="Exit"  onAction="#onExitButtonClicked" > </Button>
+
+        </HBox>
 
     </bottom>
+
+
 
 
 </BorderPane>

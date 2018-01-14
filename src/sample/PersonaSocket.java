@@ -30,7 +30,6 @@ public class PersonaSocket {
         objectInputStream = new ObjectInputStream(socket.getInputStream());
 
 
-
     }
 
 

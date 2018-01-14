@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 /**
@@ -14,7 +17,10 @@ import javafx.scene.control.TextField;
  */
 public class AddNewEmployeeScreenController {
 
+    private Stage refToParent;
 
+    @FXML
+    public Button exitButton;
     @FXML
     private TextField usernameTF;
     @FXML
@@ -37,10 +43,14 @@ public class AddNewEmployeeScreenController {
     @FXML
     private ComboBox<String> countyTF;
 
-
-
     @FXML
     private Button submitAddNewEmployee;
+
+    public void initData(Stage refToParent){
+
+        this.refToParent = refToParent;
+
+    }
 
 
     public void onSubmitButtonClicked(ActionEvent event) {
@@ -98,7 +108,45 @@ public class AddNewEmployeeScreenController {
             System.out.println(employee.toString());
 
 
+            try {
+
+                PersonaSocket.objectOutputStream.writeObject("Add employee");
+
+                PersonaSocket.objectOutputStream.writeObject(loginClass);
+
+                PersonaSocket.objectOutputStream.writeObject(employee);
+
+                String authResponse = (String)PersonaSocket.objectInputStream.readObject();
+
+                if (authResponse.equals(PersonaSocket.SUCCESS)){
+
+                    System.out.println("added emp successfully!!!");
+
+                }else if (authResponse.equals(PersonaSocket.FAIL)) {
+
+                    System.out.println("added emp failed!!!");
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+
         }
+
+    }
+
+
+
+    public void onExitButtonClicked(ActionEvent actionEvent) {
+
+        ((Stage)exitButton.getScene().getWindow()).close();
+
+        this.refToParent.show();
 
     }
 }

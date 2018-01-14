@@ -46,9 +46,6 @@
                     GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
             <Button fx:id="watchAutoDiagnosticsButton" text="Watch Auto Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
-            <Button fx:id="addTreeDiagnosticsButton" text="Create tree Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"
-                    GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
-
         </GridPane>
 
 
