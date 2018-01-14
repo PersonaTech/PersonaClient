@@ -1,10 +1,12 @@
 package ModulesPackage;
 
+import java.io.Serializable;
+
 /**
  * Created by itamarfredavrahami on 09/12/2017.
  */
 
-public class Test {
+public class Test implements Serializable{
 
     private static final long serialVersionUID = 1129L;
 
@@ -13,7 +15,9 @@ public class Test {
     private String childId;
     private String pictureId;
 
+    public Test() {
 
+    }
 
     public Test(String testId, String socialWorkerId, String childId, String pictureId) {
         this.testId = testId;

@@ -1,9 +1,11 @@
 package ModulesPackage;
 
+import java.io.Serializable;
+
 /**
  * Created by itamarfredavrahami on 14/01/2018.
  */
-public class EmployeePerformance {
+public class EmployeePerformance implements Serializable {
     private static final long serialVersionUID = 1997L;
 
     private String EmpUid ;

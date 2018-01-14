@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,7 +48,9 @@ public class WatchWorkersPerformanceController {
 
             PersonaSocket.objectOutputStream.writeObject("get EmployeeStatistics");
 
-            List<EmployeePerformance> empPerList = (List<EmployeePerformance>)PersonaSocket.objectInputStream.readObject();
+            List<EmployeePerformance> empPerList = new ArrayList<>();
+
+            empPerList = (ArrayList<EmployeePerformance>)PersonaSocket.objectInputStream.readObject();
 
             final CategoryAxis xAxis = new CategoryAxis();
             final NumberAxis yAxis = new NumberAxis();

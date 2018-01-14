@@ -9,8 +9,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.WatchWorkersPerformanceController"
-            fx:id="borderPaneWatch"
-            >
+            fx:id="borderPaneWatch" >
 
     <bottom>
         <HBox alignment="CENTER" translateY="-10">

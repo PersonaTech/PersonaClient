@@ -68,7 +68,6 @@ public class WatchWorkersDiagnosticsController {
 
                 Label labels[] = new Label[7];
 
-
                 labels[0] = new Label("Tree size");
                 labels[1] = new Label("Drawing size");
                 labels[2] = new Label("Proportion");

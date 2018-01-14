@@ -44,15 +44,18 @@ public class sampleController {
         }
 
 
-        // usernameField.setText("personaproject@gmail.com");
 
-        // passwordField.setText("123456");
+        usernameField.setText("itamar@gmail.com");
+
+        passwordField.setText("99887766");
+
+
 
         // OR
 
-        usernameField.setText("per@gmail.com");
+        //usernameField.setText("per@gmail.com");
 
-        passwordField.setText("123456");
+        //passwordField.setText("123456");
 
 
     }

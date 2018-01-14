@@ -1,9 +1,11 @@
 package ModulesPackage;
 
+import java.io.Serializable;
+
 /**
  * Created by itamarfredavrahami on 09/12/2017.
  */
-public class TreeDrawingTest extends Test{
+public class TreeDrawingTest extends Test implements Serializable{
 
     private static final long serialVersionUID = 1149L;
 
@@ -14,6 +16,8 @@ public class TreeDrawingTest extends Test{
     private int proportionBetweenElements;
     private int referenceToLeafs;
     private int sidewaysMovement;
+    private String treeLocation;
+
     /*
         The treeLocation can be one of th following properties:
          - CENTER
@@ -22,7 +26,6 @@ public class TreeDrawingTest extends Test{
          - TOP
          - BOTTOM
      */
-    private String treeLocation;
 
     // ======================  Qualitative variables ===========================
 
@@ -30,6 +33,10 @@ public class TreeDrawingTest extends Test{
 
     // ======================  Constructors and Setters & Getters ===============
 
+
+    public TreeDrawingTest() {
+
+    }
 
     public TreeDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,
                            int treeSizePercentage, int drawingSizePercentage, int proportionBetweenElements,
