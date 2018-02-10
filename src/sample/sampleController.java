@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +21,7 @@ import java.util.logging.Level;
 
 public class sampleController {
 
+    public ImageView loginPicImageView;
     @FXML
     private TextField usernameField;
     @FXML
@@ -43,12 +47,16 @@ public class sampleController {
             e.printStackTrace();
         }
 
-
+//        Image image = new Image("@../Photos/logo.png");
+//        loginPicImageView = new ImageView();
+//
+//        loginPicImageView.setImage(image);
+//
+//
+//
 
         usernameField.setText("itamar@gmail.com");
-
         passwordField.setText("99887766");
-
 
 
         // OR
@@ -106,9 +114,7 @@ public class sampleController {
                     Stage stage = new Stage();
                     stage.setTitle("Manager Menu");
 
-
                     stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
-
 
                     ManagerMenuScreenController controller = fxmlLoader.<ManagerMenuScreenController>getController();
                     controller.initData((Stage) loginButton.getScene().getWindow());
@@ -127,7 +133,7 @@ public class sampleController {
                     stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
 
                     SocialWorkerMenuScreenController controller = fxmlLoader.<SocialWorkerMenuScreenController>getController();
-                    controller.initData("hello from login");
+                    controller.initData((Stage) loginButton.getScene().getWindow() , currentEmployee);
 
                     loginButton.getScene().getWindow().hide();
                     stage.show();
@@ -159,6 +165,8 @@ public class sampleController {
         } catch (ClassNotFoundException e) {
 
             e.printStackTrace();
+
+
         }
 
     }

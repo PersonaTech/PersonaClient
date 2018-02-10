@@ -45,10 +45,11 @@ public class AddNewChildScreenController {
 
         System.out.println("ok the add new child is open now" );
 
-        List<String> kindergartenList = new ArrayList<>();
 
 
         try {
+
+            List<String> kindergartenList = new ArrayList<>();
 
             PersonaSocket.objectOutputStream.writeObject("get Kindergartens");
 

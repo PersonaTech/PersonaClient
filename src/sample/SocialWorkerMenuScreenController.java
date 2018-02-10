@@ -1,5 +1,6 @@
 package sample;
 
+import ModulesPackage.Employee;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -15,6 +16,10 @@ import java.io.IOException;
  * Created by itamarfredavrahami on 10/12/2017.
  */
 public class SocialWorkerMenuScreenController {
+
+    public Employee refToEmployee;
+
+    private Stage refToParent;
 
     @FXML
     public Button addTreeTestDiagnosticButton;
@@ -37,10 +42,14 @@ public class SocialWorkerMenuScreenController {
 
     @FXML
     public void initialize(){
-        System.out.println("ok the menu is open now");
+
+        System.out.println("ok the social worker menu is open now");
     }
 
-    public void initData(String message ){
+    public void initData(Stage refToParent , Employee refToEmployee){
+
+        this.refToParent = refToParent;
+        this.refToEmployee = refToEmployee;
 
     }
 
@@ -53,30 +62,43 @@ public class SocialWorkerMenuScreenController {
 
         }else if(event.getSource().equals(addPersonTestDiagnosticButton)){
             System.out.println("2");
+            lunchPersonTestDiagnosticScreen(event);
 
 
         }else if(event.getSource().equals(addHouseTestDiagnosticButton)){
             System.out.println("3");
+            lunchHouseTestDiagnosticScreen(event);
 
         }else if(event.getSource().equals(addGeneralDiagnosticButton)){
             System.out.println("4");
 
         }else if(event.getSource().equals(watchTreeTestDiagnosticButton)){
             System.out.println("5");
+            lunchWatchTreeTestDiagnosticScreen(event);
+
 
         }else if(event.getSource().equals(watchPersonTestDiagnosticButton)){
             System.out.println("6");
+            lunchWatchPersonTestDiagnosticScreen(event);
 
         }else if(event.getSource().equals(watchHouseTestDiagnosticButton)){
             System.out.println("7");
+            lunchWatchHouseTestDiagnosticScreen(event);
 
         }else if(event.getSource().equals(watchGeneralDiagnosticButton)){
             System.out.println("8");
 
         }else if(event.getSource().equals(exitButton)){
+
             System.out.println("9");
 
+            ((Stage)exitButton.getScene().getWindow()).close();
+            this.refToParent.show();
         }
+
+
+
+
 
 
 
@@ -84,15 +106,12 @@ public class SocialWorkerMenuScreenController {
 
     }
 
-
     public void lunchTreeTestDiagnosticScreen(Event event){
 
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-
             fxmlLoader.setLocation(getClass().getResource("AddTreeTestDiagnostic.fxml"));
-
 
             Stage stage = new Stage();
             stage.setTitle("Tree Test Diagnostic");
@@ -100,10 +119,10 @@ public class SocialWorkerMenuScreenController {
             stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
 
             AddTreeTestDiagnosticController controller = fxmlLoader.<AddTreeTestDiagnosticController>getController();
+            controller.initData((Stage) addTreeTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
 
+            addTreeTestDiagnosticButton.getScene().getWindow().hide();
             stage.show();
-
-            ((Node)(event.getSource())).getScene().getWindow().hide();
 
 
         } catch (IOException e) {
@@ -111,6 +130,39 @@ public class SocialWorkerMenuScreenController {
             e.printStackTrace();
         }
     }
+
+    private void lunchPersonTestDiagnosticScreen(ActionEvent event) {
+
+    }
+
+    private void lunchHouseTestDiagnosticScreen(ActionEvent event) {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    private void lunchWatchTreeTestDiagnosticScreen(ActionEvent event) {
+
+    }
+
+
+
+    private void lunchWatchPersonTestDiagnosticScreen(ActionEvent event) {
+
+    }
+
+    private void lunchWatchHouseTestDiagnosticScreen(ActionEvent event) {
+
+    }
+
 
 
 }

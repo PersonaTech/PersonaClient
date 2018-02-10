@@ -20,7 +20,7 @@
 
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
-    <ImageView GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="180.0" fitWidth="250.0">
+    <ImageView fx:id="loginPicImageView" GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="180.0" fitWidth="250.0">
         <image >
             <Image url="@../Photos/logo.png"/>
         </image>

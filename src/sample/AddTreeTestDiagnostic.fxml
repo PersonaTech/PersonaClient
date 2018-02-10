@@ -10,6 +10,7 @@
 <?import javafx.collections.FXCollections?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            fx:id="borderRoot"
             fx:controller="sample.AddTreeTestDiagnosticController">
 
     <top>
@@ -58,67 +59,51 @@
 
         </VBox>
 
-
-
-
-
-
     </center>
 
     <left>
 
-        <VBox alignment="CENTER" maxWidth="300" spacing="30">
+        <VBox alignment="CENTER" maxWidth="300" spacing="30" translateX="10">
 
-            <Label text="choose child..."></Label>
-            <ComboBox fx:id="childIdCB" promptText="choose child... " prefWidth="300" >
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <!--<String fx:value="Right" />-->
-                        <!--<String fx:value="Left" />-->
-                        <!--<String fx:value="Center" />-->
-                        <!--<String fx:value="Top" />-->
-                        <!--<String fx:value="Bottom" />-->
-                    </FXCollections>
-                </items>
-
+            <Label text="choose kindergarten..."></Label>
+            <ComboBox fx:id="kindergartenCB" promptText="choose kindergarten..." prefWidth="300" >
             </ComboBox>
 
+
+            <Label text="choose child..."></Label>
+            <ComboBox fx:id="childIdCB" promptText="choose child..." prefWidth="300" >
+            </ComboBox>
 
 
             <Label text="choose picture..."></Label>
             <ComboBox fx:id="pictureIdCB" promptText="choose picture" prefWidth="300">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <!--<String fx:value="Right" />-->
-                        <!--<String fx:value="Left" />-->
-                        <!--<String fx:value="Center" />-->
-                        <!--<String fx:value="Top" />-->
-                        <!--<String fx:value="Bottom" />-->
+                        <String fx:value="example" />
+                        <String fx:value="Center" />
+                        <String fx:value="North" />
                     </FXCollections>
                 </items>
-
-
-
             </ComboBox>
 
+            <HBox fx:id="paneToShowPic">
+
+            </HBox>
+
         </VBox>
-
-
-
-
 
     </left>
 
+
     <bottom>
 
+        <HBox alignment="CENTER" translateY="-10">
 
-        <VBox alignment="CENTER">
-            <Button fx:id="submitAddNewDiagnostic"  text="Add Diagnostic" onAction="#onSubmitButtonClicked"> </Button>
-            <StackPane alignment="CENTER_RIGHT">
-                <Button fx:id="exit" text="Exit" prefHeight="40" prefWidth="150"  onAction="#onExitButtonClicked"> </Button>
-            </StackPane>
-        </VBox>
+            <Button fx:id="submitAddNewDiagnostic"  text="Add Diagnostic" prefHeight="40" prefWidth="150" onAction="#onSubmitButtonClicked"> </Button>
 
+            <Button fx:id="exitButton" text="Exit" prefHeight="40" prefWidth="150"  onAction="#onExitButtonClicked" > </Button>
+
+        </HBox>
 
     </bottom>
 

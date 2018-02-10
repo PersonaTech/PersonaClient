@@ -27,7 +27,8 @@ public class ManagerMenuScreenController {
 
     @FXML
     public void initialize(){
-        System.out.println("ok the menu is open now");
+
+        System.out.println("ok the manager menu is open now");
     }
 
     public void initData(Stage refToParent){
@@ -82,12 +83,10 @@ public class ManagerMenuScreenController {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("AddNewEmployeeScreen.fxml"));
 
-
             Stage stage = new Stage();
             stage.setTitle("Add new Employee");
 
             stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
-
 
             AddNewEmployeeScreenController controller = fxmlLoader.<AddNewEmployeeScreenController>getController();
             controller.initData((Stage) addSwButton.getScene().getWindow());
