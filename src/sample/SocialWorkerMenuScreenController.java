@@ -23,6 +23,8 @@ public class SocialWorkerMenuScreenController {
 
     @FXML
     public Button addTreeTestDiagnosticButton;
+
+
     @FXML
     public Button addPersonTestDiagnosticButton;
     @FXML
@@ -133,20 +135,59 @@ public class SocialWorkerMenuScreenController {
 
     private void lunchPersonTestDiagnosticScreen(ActionEvent event) {
 
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("addPersonTestDiagnostic.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("Person Test Diagnostic");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+
+            AddPersonTestDiagnosticController controller = fxmlLoader.<AddPersonTestDiagnosticController>getController();
+            controller.initData( (Stage)addPersonTestDiagnosticButton.getScene().getWindow() , this.refToEmployee );
+
+            addPersonTestDiagnosticButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+
+
+
+
     }
 
     private void lunchHouseTestDiagnosticScreen(ActionEvent event) {
 
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AddHouseTestDiagnostic.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("House Test Diagnostic");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+
+            AddHouseTestDiagnosticController controller = fxmlLoader.<AddHouseTestDiagnosticController>getController();
+            controller.initData((Stage) addHouseTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
+
+            addHouseTestDiagnosticButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
     }
-
-
-
-
-
-
-
-
-
 
 
     private void lunchWatchTreeTestDiagnosticScreen(ActionEvent event) {

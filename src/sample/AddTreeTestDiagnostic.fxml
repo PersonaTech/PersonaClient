@@ -67,11 +67,13 @@
 
             <Label text="choose kindergarten..."></Label>
             <ComboBox fx:id="kindergartenCB" promptText="choose kindergarten..." prefWidth="300" >
+
             </ComboBox>
 
 
             <Label text="choose child..."></Label>
             <ComboBox fx:id="childIdCB" promptText="choose child..." prefWidth="300" >
+
             </ComboBox>
 
 
@@ -79,9 +81,9 @@
             <ComboBox fx:id="pictureIdCB" promptText="choose picture" prefWidth="300">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="example" />
-                        <String fx:value="Center" />
-                        <String fx:value="North" />
+                        <String fx:value="example1" />
+                        <String fx:value="example2" />
+                        <String fx:value="example3" />
                     </FXCollections>
                 </items>
             </ComboBox>

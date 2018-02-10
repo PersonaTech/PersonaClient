@@ -8,21 +8,19 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by itamarfredavrahami on 10/12/2017.
@@ -73,6 +71,9 @@ public class AddTreeTestDiagnosticController {
     public ComboBox pictureIdCB;
 
 
+    public List<Child> childrenList;
+
+
 
 
     public void initData(Stage refToParent , Employee refToEmployee){
@@ -107,6 +108,8 @@ public class AddTreeTestDiagnosticController {
         }
 
 
+
+
         kindergartenCB.setEditable(true);
         kindergartenCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
 
@@ -116,7 +119,9 @@ public class AddTreeTestDiagnosticController {
 
                 try {
 
-                    List<Child> childrenList = new ArrayList<>();
+                    childrenList=null;
+
+                    childrenList = new ArrayList<>();
 
                     PersonaSocket.objectOutputStream.writeObject("get childrensByKindergarten");
 
@@ -126,9 +131,24 @@ public class AddTreeTestDiagnosticController {
 
                     childrenList = (ArrayList<Child>) PersonaSocket.objectInputStream.readObject();
 
+
+                    List<String> childrenNamesList = new ArrayList<>();
+
+                    for (Child c: childrenList) {
+
+                        childrenNamesList.add(c.getChildName());
+
+                    }
+
+
+
                     if(! childrenList.isEmpty()) {
 
-                        childIdCB.setItems(FXCollections.observableArrayList(childrenList));
+
+
+                        childIdCB.setItems(FXCollections.observableArrayList(childrenNamesList));
+
+
 
                     }else {
 
@@ -144,46 +164,26 @@ public class AddTreeTestDiagnosticController {
             }
         });
 
-        pictureIdCB.setEditable(true);
-        pictureIdCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
+        childIdCB.setEditable(true);
+
+        childIdCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
+
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
 
-                //// List<String> picturesList = new ArrayList<>();
+                List<String> picturesList = new ArrayList<>();
 
+                picturesList.add(newValue+" - pic1");
+                picturesList.add(newValue+" - pic2");
+                picturesList.add(newValue+" - pic3");
+                picturesList.add(newValue+" - pic4");
 
-                System.out.println("val ::: " + newValue);
-
-                if (newValue.equals("example")){
-
-//
-//                    ImageView imageView = new ImageView();
-//                    imageView.fitHeightProperty().setValue(200);
-//                    imageView.fitWidthProperty().setValue(200);
-//
-//                    Image image = new Image("http://goo.gl/kYEQl");
-//
-//                    imageView.setImage(image);
-
-//                    borderRoot.setLeft(imageView);
-
-//                    paneToShowPic.getChildren().
-
-
-
-                }
-
-
-
-
-
+                pictureIdCB.setItems(FXCollections.observableArrayList(picturesList));
 
 
             }
-
-
         });
 
 
@@ -194,18 +194,47 @@ public class AddTreeTestDiagnosticController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+//        pictureIdCB.setEditable(true);
+//        pictureIdCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
+//
+//            @Override
+//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//
+//
+//                //// List<String> picturesList = new ArrayList<>();
+//
+//
+//                System.out.println("val ::: " + newValue);
+//
+//                if (newValue.equals("example")){
+//
+////
+////                    ImageView imageView = new ImageView();
+////                    imageView.fitHeightProperty().setValue(200);
+////                    imageView.fitWidthProperty().setValue(200);
+////
+////                    Image image = new Image("http://goo.gl/kYEQl");
+////
+////                    imageView.setImage(image);
+//
+////                    borderRoot.setLeft(imageView);
+//
+////                    paneToShowPic.getChildren().
+//
+//
+//
+//                }
+//
+//
+//
+//
+//
+//
+//
+//            }
+//
+//
+//        });
 
 
     }
@@ -221,13 +250,29 @@ public class AddTreeTestDiagnosticController {
                         treeLocationTF.getSelectionModel().isEmpty()
                 ;
 
+
         if (treeTestFieldsChecker) {
 
             System.out.println("One of the Tree test fields is empty!");
 
         }else {
 
-            TreeDrawingTest treeDrawingTest = new TreeDrawingTest("default", refToEmployee.getuId() , "ch1", "pic1"
+            String childUid = "";
+
+            UUID uuid = UUID.randomUUID();
+
+            String childName = childIdCB.getSelectionModel().getSelectedItem().toString();
+
+            for (Child child: childrenList) {
+
+                if(child.getChildName().equals(childName))
+                    childUid = child.getChildID();
+
+            }
+
+
+
+            TreeDrawingTest treeDrawingTest = new TreeDrawingTest(uuid.toString(), refToEmployee.getuId() , childUid, pictureIdCB.getSelectionModel().getSelectedItem().toString()
                     , (int) this.treeSizePercentageSlider.getValue()
                     , (int) this.drawingSizePercentageSlider.getValue()
                     , (int) this.proportionBetweenElementsSlider.getValue()
@@ -290,29 +335,6 @@ public class AddTreeTestDiagnosticController {
         ((Stage)exitButton.getScene().getWindow()).close();
 
         this.refToParent.show();
-
-
-
-
-
-//
-//        borderRoot.setLeft(imageView);
-
-
-
-
-
-
-//        StackPane root = new StackPane();
-//        root.getChildren().add(imageView);
-//        Scene scene = new Scene(root, 300, 300);
-
-//        Stage stage = new Stage();
-//
-//        stage.setTitle("java-buddy.blogspot.com");
-//        stage.setScene(scene);
-//        stage.show();
-
 
 
     }
