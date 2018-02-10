@@ -106,7 +106,7 @@ public class HouseDrawingTest extends Test implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() +  getClass().getName() + " - HouseDrawingTest{" +
+        return super.toString() + " - HouseDrawingTest{" +
                 "houseSizePercentageSlider=" + houseSizePercentageSlider +
                 ", drawingSizePercentageSlider=" + drawingSizePercentageSlider +
                 ", proportionBetweenElementsSlider=" + proportionBetweenElementsSlider +

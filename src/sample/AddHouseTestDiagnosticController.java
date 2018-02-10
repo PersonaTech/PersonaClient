@@ -195,7 +195,7 @@ public class AddHouseTestDiagnosticController {
                 System.out.println("One of the Tree test fields is empty!");
 
             if (houseChoosingChecker)
-                System.out.println(" You mUST Choose kindergarten , child and picture!!!");
+                System.out.println(" You must Choose kindergarten , child and picture!!!");
 
         }else {
 
@@ -224,27 +224,6 @@ public class AddHouseTestDiagnosticController {
                     , chk.getText()
                     , diagnosticFreeText.getText()
             );
-
-            //yesNoToggleGroup.getSelectedToggle().getUserData().toString()
-
-
-
-
-
-
-
-//            TreeDrawingTest treeDrawingTest = new TreeDrawingTest(uuid.toString(), refToEmployee.getuId() , childUid, pictureIdCB.getSelectionModel().getSelectedItem().toString()
-//                    , (int) this.treeSizePercentageSlider.getValue()
-//                    , (int) this.drawingSizePercentageSlider.getValue()
-//                    , (int) this.proportionBetweenElementsSlider.getValue()
-//                    , (int) this.referenceToLeafsSlider.getValue()
-//                    , (int) this.sidewaysMovementSlider.getValue()
-//                    , this.treeLocationTF.getSelectionModel().getSelectedItem().toString()
-//                    , diagnosticFreeText.getText()
-//            );
-
-
-
 
             System.out.println(houseDrawingTest.toString());
 
