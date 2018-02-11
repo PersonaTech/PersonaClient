@@ -8,6 +8,8 @@
 
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.collections.FXCollections?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.WatchWorkersDiagnosticsController"
@@ -19,14 +21,34 @@
         <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
 
             <Label text="Choose social worker"></Label>
-            <ComboBox fx:id="swCB" promptText="select social worker ... " prefWidth="400" >
+            <ComboBox fx:id="swCB" promptText="select social worker ... " prefWidth="500" >
             </ComboBox>
 
-            <Label text="Choose painting"></Label>
-            <ComboBox fx:id="pCB" promptText="select painting... " prefWidth="400" >
+            <Label text="Choose drawing type"></Label>
+            <ComboBox fx:id="typeCB" promptText="select drawing type ... " prefWidth="500" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Tree" />
+                        <String fx:value="House" />
+                        <String fx:value="Person" />
+                    </FXCollections>
+                </items>
             </ComboBox>
+
+
+            <Label text="Choose test"></Label>
+            <ComboBox fx:id="pCB" promptText="select painting... " prefWidth="500" >
+            </ComboBox>
+
+            <Label text="preview of selected image: "></Label>
+
+            <ImageView fx:id="imageToShow" >
+
+            </ImageView>
 
         </VBox>
+
+
 
     </left>
 
@@ -36,6 +58,12 @@
             <Button fx:id="ExitButton" text="Exit" prefHeight="40" prefWidth="270"  onAction="#onExitButtonClicked" ></Button>
         </HBox>
     </bottom>
+
+    <center>
+
+
+
+    </center>
 
 
 </BorderPane>

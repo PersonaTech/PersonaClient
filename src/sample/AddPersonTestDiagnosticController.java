@@ -115,9 +115,7 @@ public class AddPersonTestDiagnosticController {
 
                     }
 
-
                     if(! childrenList.isEmpty()) {
-
 
 
                         childIdCB.setItems(FXCollections.observableArrayList(childrenNamesList));
@@ -141,7 +139,6 @@ public class AddPersonTestDiagnosticController {
         childIdCB.setEditable(true);
 
         childIdCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
-
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -248,8 +245,6 @@ public class AddPersonTestDiagnosticController {
             }
 
         }
-
-
 
 
     }

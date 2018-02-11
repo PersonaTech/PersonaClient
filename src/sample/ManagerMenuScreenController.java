@@ -119,10 +119,8 @@ public class ManagerMenuScreenController {
             AddNewChildScreenController controller = fxmlLoader.<AddNewChildScreenController>getController();
             controller.initData((Stage) addChildButton.getScene().getWindow());
 
-
             addChildButton.getScene().getWindow().hide();
             stage.show();
-
 
 
         } catch (IOException e) {
