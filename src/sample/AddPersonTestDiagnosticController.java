@@ -3,6 +3,7 @@ package sample;
 import ModulesPackage.Child;
 import ModulesPackage.Employee;
 import ModulesPackage.PersonDrawingTest;
+import ModulesPackage.Picture;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -225,6 +226,8 @@ public class AddPersonTestDiagnosticController {
 
         }else {
 
+            Picture p=null;
+
             String childUid = "";
 
             UUID uuid = UUID.randomUUID();
@@ -233,14 +236,17 @@ public class AddPersonTestDiagnosticController {
 
             for (Child child: childrenList) {
 
-                if(child.getChildName().equals(childName))
+                if(child.getChildName().equals(childName)) {
                     childUid = child.getChildID();
+
+                    p = child.getPicByPicId(pictureIdCB.getSelectionModel().getSelectedItem().toString());
+                }
 
             }
 
             PersonDrawingTest personDrawingTest = new PersonDrawingTest(
                     uuid.toString() , refToEmployee.getuId() , childUid ,
-                    pictureIdCB.getSelectionModel().getSelectedItem().toString()
+                    pictureIdCB.getSelectionModel().getSelectedItem().toString() ,p
                     , (int) personSizePercentageSlider.getValue()
                     , (int) drawingSizePercentageSlider.getValue()
                     , (int) proportionBetweenElementsSlider.getValue()

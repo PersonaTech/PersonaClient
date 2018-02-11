@@ -37,11 +37,11 @@ public class PersonDrawingTest extends Test implements Serializable {
     public PersonDrawingTest() {
     }
 
-    public PersonDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,
+    public PersonDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,Picture refToPicture,
                              int personSizePercentageSlider, int drawingSizePercentageSlider, int proportionBetweenElementsSlider,
                              Boolean headIsExist, Boolean legsIsExist, Boolean armsIsExist, Boolean eyesIsExist,
                              Boolean mouthIsExist, Boolean hairIsExist, int numberOfClothing, String diagnosticFreeText) {
-        super(testId, socialWorkerId, childId, pictureId);
+        super(testId, socialWorkerId, childId, pictureId,refToPicture);
         this.personSizePercentageSlider = personSizePercentageSlider;
         this.drawingSizePercentageSlider = drawingSizePercentageSlider;
         this.proportionBetweenElementsSlider = proportionBetweenElementsSlider;

@@ -38,10 +38,10 @@ public class TreeDrawingTest extends Test implements Serializable{
 
     }
 
-    public TreeDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,
+    public TreeDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,Picture refToPicture,
                            int treeSizePercentage, int drawingSizePercentage, int proportionBetweenElements,
                            int referenceToLeafs, int sidewaysMovement, String treeLocation, String diagnosticFreeText) {
-        super(testId, socialWorkerId, childId, pictureId);
+        super(testId, socialWorkerId, childId, pictureId,refToPicture);
         this.treeSizePercentage = treeSizePercentage;
         this.drawingSizePercentage = drawingSizePercentage;
         this.proportionBetweenElements = proportionBetweenElements;

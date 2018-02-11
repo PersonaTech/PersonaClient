@@ -15,15 +15,20 @@ public class Test implements Serializable{
     private String childId;
     private String pictureId;
 
+    private Picture refToPicture;
+
+
+
     public Test() {
 
     }
 
-    public Test(String testId, String socialWorkerId, String childId, String pictureId) {
+    public Test(String testId, String socialWorkerId, String childId, String pictureId, Picture refToPicture) {
         this.testId = testId;
         this.socialWorkerId = socialWorkerId;
         this.childId = childId;
         this.pictureId = pictureId;
+        this.refToPicture = refToPicture;
     }
 
     public String getTestId() {
@@ -56,6 +61,14 @@ public class Test implements Serializable{
 
     public void setPictureId(String pictureId) {
         this.pictureId = pictureId;
+    }
+
+    public Picture getRefToPicture() {
+        return refToPicture;
+    }
+
+    public void setRefToPicture(Picture refToPicture) {
+        this.refToPicture = refToPicture;
     }
 
     @Override

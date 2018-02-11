@@ -30,14 +30,14 @@ import java.util.List;
 
 public class WatchWorkersDiagnosticsController {
 
-    List<TreeDrawingTest> treeDrawingTestList;
+    public List<TreeDrawingTest> treeDrawingTestList;
 
-    List<HouseDrawingTest> houseDrawingTestList;
+    public List<HouseDrawingTest> houseDrawingTestList;
 
-    List<PersonDrawingTest> personDrawingTestList;
+    public List<PersonDrawingTest> personDrawingTestList;
 
 
-    List<Employee> listOfEmployees;
+    public List<Employee> listOfEmployees;
 
     @FXML
     public BorderPane borderPaneWatch;
@@ -66,7 +66,7 @@ public class WatchWorkersDiagnosticsController {
         typeCB.setDisable(true);
         pCB.setDisable(true);
 
-        imageToShow.setImage(new Image("http://goo.gl/kYEQl"));
+
 
         listOfEmployees = new ArrayList<>();
 
@@ -247,6 +247,71 @@ public class WatchWorkersDiagnosticsController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
+                String typeOfTest = typeCB.getSelectionModel().getSelectedItem().toString();
+
+                String picId = newValue;
+
+                switch (typeOfTest){
+
+                    case "Tree":
+
+                        for (TreeDrawingTest c: treeDrawingTestList) {
+
+                            if(c.getTestId().equals(picId)){
+
+                                String childId = c.getChildId();
+
+
+                            }
+
+                        }
+
+
+
+
+
+                        break;
+
+                    case "House":
+
+                        for (HouseDrawingTest c: houseDrawingTestList) {
+                            if(c.getTestId().equals(picId)){
+
+                            }
+                        }
+
+                        break;
+
+                    case "Person":
+
+                        for (PersonDrawingTest c: personDrawingTestList) {
+                            if(c.getTestId().equals(picId)){
+
+                            }
+                        }
+
+                        break;
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+                //PersonaSocket.objectOutputStream.writeObject("get Employees");
+                //
+
+
+                // imageToShow.setImage(new Image("http://goo.gl/kYEQl"));
+
+
+
                 ShowButton.setDisable(false);
 
             }
@@ -330,7 +395,7 @@ public class WatchWorkersDiagnosticsController {
 
                         Label labels[] = new Label[11];
 
-                        labels[0] = new Label("Tree size");
+                        labels[0] = new Label("person size");
                         labels[1] = new Label("Drawing size");
                         labels[2] = new Label("Proportion");
                         labels[3] = new Label("headIsExist");
@@ -369,119 +434,56 @@ public class WatchWorkersDiagnosticsController {
                     }
                 }
 
-
-
                 break;
 
             case "House":
 
+                for (HouseDrawingTest t : houseDrawingTestList)
+                {
+                    if(u.equals(t.getTestId())){
 
+                        GridPane gridpane = new GridPane();
+                        gridpane.setPadding(new Insets(15, 20, 15, 20));
+                        gridpane.setAlignment(Pos.CENTER);
+                        gridpane.setHgap(60);
+                        gridpane.setVgap(10);
 
+                        Label labels[] = new Label[7];
 
-                break;
+                        labels[0] = new Label("house size");
+                        labels[1] = new Label("Drawing size");
+                        labels[2] = new Label("Proportion");
+                        labels[3] = new Label("reference To Door and Windows");
+                        labels[4] = new Label("reference To Roof");
+                        labels[5] = new Label("walls in the painting");
+                        labels[6] = new Label("Psychological diagnosis");
 
+                        Label data[] = new Label[7];
 
+                        data[0] = new Label(Integer.toString(t.getHouseSizePercentageSlider()));
+                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
+                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
+                        data[3] = new Label(Integer.toString(t.getReferenceToDoorWindowsSlider()));
+                        data[4]= new Label(Integer.toString(t.getReferenceToRoofSlider()));
+                        data[5]= new Label(t.getYesNoWall());
+                        data[6]= new Label(t.getDiagnosticFreeText());
 
+                        for (int i=0 ; i < 7 ; i++) {
 
-        };
+                            gridpane.add(labels[i] , 0 , i );
+                            gridpane.add(data[i] , 1 , i );
 
+                        }
 
+                        borderPaneWatch.setCenter(gridpane);
 
-
-        /*
-
-        String worker;
-        String picType;
-
-        GridPane gridpane = new GridPane();
-        gridpane.setPadding(new Insets(15, 20, 15, 20));
-        gridpane.setAlignment(Pos.CENTER);
-        gridpane.setHgap(60);
-        gridpane.setVgap(10);
-
-
-        picType = "Tree";
-
-        // TODO: 14/01/2018 DB QUARY TO RECIEVE PICTURE DATATYPE
-
-        switch (picType){
-
-            case "Tree":
-
-                Label labels[] = new Label[7];
-
-                labels[0] = new Label("Tree size");
-                labels[1] = new Label("Drawing size");
-                labels[2] = new Label("Proportion");
-                labels[3] = new Label("reference to leafs");
-                labels[4] = new Label("Sideways movement");
-                labels[5] = new Label("Tree location");
-                labels[6] = new Label("Psychological diagnosis");
-
-                Label data[] = new Label[7];
-
-                data[0] = new Label("...");
-                data[1]= new Label("...");
-                data[2]= new Label("...");
-                data[3] = new Label("...");
-                data[4]= new Label("...");
-                data[5]= new Label("...");
-                data[6]= new Label("...");
-                TextArea res7 = new TextArea("here will be the diagnosis");
-
-                for (int i=0 ; i< 6 ; i++) {
-
-                    gridpane.add(labels[i] , 0 , i );
-                    gridpane.add(data[i] , 1 , i );
-
+                        System.out.println("complete load");
+                    }
                 }
 
-                borderPaneWatch.setCenter(gridpane);
-
-                System.out.println("complete load");
-
-
                 break;
 
-
-
-            case "Person":
-
-
-
-
-
-                break;
-
-            case "House":
-
-
-
-
-
-
-
-                break;
-
-            default:
-
-        }
-
-
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
+        };
 
     }
 

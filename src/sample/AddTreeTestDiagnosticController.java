@@ -2,6 +2,7 @@ package sample;
 
 import ModulesPackage.Child;
 import ModulesPackage.Employee;
+import ModulesPackage.Picture;
 import ModulesPackage.TreeDrawingTest;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -182,8 +183,6 @@ public class AddTreeTestDiagnosticController {
 
                 }
 
-
-
             }
         });
 
@@ -238,6 +237,8 @@ public class AddTreeTestDiagnosticController {
 
         }else {
 
+            Picture p=null;
+
             String childUid = "";
 
             UUID uuid = UUID.randomUUID();
@@ -246,14 +247,19 @@ public class AddTreeTestDiagnosticController {
 
             for (Child child: childrenList) {
 
-                if(child.getChildName().equals(childName))
+                if(child.getChildName().equals(childName)) {
+
                     childUid = child.getChildID();
+                    p = child.getPicByPicId(pictureIdCB.getSelectionModel().getSelectedItem().toString());
+
+                }
 
             }
 
 
 
-            TreeDrawingTest treeDrawingTest = new TreeDrawingTest(uuid.toString(), refToEmployee.getuId() , childUid, pictureIdCB.getSelectionModel().getSelectedItem().toString()
+            TreeDrawingTest treeDrawingTest = new TreeDrawingTest(uuid.toString(), refToEmployee.getuId() ,
+                    childUid, pictureIdCB.getSelectionModel().getSelectedItem().toString() ,p
                     , (int) this.treeSizePercentageSlider.getValue()
                     , (int) this.drawingSizePercentageSlider.getValue()
                     , (int) this.proportionBetweenElementsSlider.getValue()

@@ -1,9 +1,6 @@
 package sample;
 
-import ModulesPackage.Child;
-import ModulesPackage.Employee;
-import ModulesPackage.HouseDrawingTest;
-import ModulesPackage.TreeDrawingTest;
+import ModulesPackage.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -236,6 +233,8 @@ public class AddHouseTestDiagnosticController {
 
         }else {
 
+            Picture p=null;
+
             String childUid = "";
 
             UUID uuid = UUID.randomUUID();
@@ -244,15 +243,21 @@ public class AddHouseTestDiagnosticController {
 
             for (Child child: childrenList) {
 
-                if(child.getChildName().equals(childName))
+                if(child.getChildName().equals(childName)) {
                     childUid = child.getChildID();
 
+                    p = child.getPicByPicId(pictureIdCB.getSelectionModel().getSelectedItem().toString());
+
+                }
+
             }
+
+
 
             RadioButton chk = (RadioButton)yesNoToggleGroup.getSelectedToggle();
 
 
-            HouseDrawingTest houseDrawingTest = new HouseDrawingTest(uuid.toString() , refToEmployee.getuId() , childUid , pictureIdCB.getSelectionModel().getSelectedItem().toString()
+            HouseDrawingTest houseDrawingTest = new HouseDrawingTest(uuid.toString() , refToEmployee.getuId() , childUid , pictureIdCB.getSelectionModel().getSelectedItem().toString(),p
                     , (int) this.houseSizePercentageSlider.getValue()
                     , (int) this.drawingSizePercentageSlider.getValue()
                     , (int) this.proportionBetweenElementsSlider.getValue()

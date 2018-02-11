@@ -34,11 +34,11 @@ public class HouseDrawingTest extends Test implements Serializable {
 
     }
 
-    public HouseDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,
+    public HouseDrawingTest(String testId, String socialWorkerId, String childId, String pictureId, Picture refToPicture,
                             int houseSizePercentageSlider, int drawingSizePercentageSlider, int proportionBetweenElementsSlider,
                             int referenceToDoorWindowsSlider, int referenceToRoofSlider, String yesNoWall,
                             String diagnosticFreeText) {
-        super(testId, socialWorkerId, childId, pictureId);
+        super(testId, socialWorkerId, childId, pictureId,refToPicture);
         this.houseSizePercentageSlider = houseSizePercentageSlider;
         this.drawingSizePercentageSlider = drawingSizePercentageSlider;
         this.proportionBetweenElementsSlider = proportionBetweenElementsSlider;
