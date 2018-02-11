@@ -17,7 +17,7 @@
 
     <top>
         <HBox alignment="CENTER" prefHeight="50" translateY="50">
-            <Label text="Diagnosis of Tree test ">
+            <Label text="Diagnosis of Person test ">
                 <font>
                     <Font name="Comic Sans MS bold" size="28.0"  ></Font>
                 </font>
