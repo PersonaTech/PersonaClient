@@ -2,13 +2,32 @@
     -fx-font-size: 13pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: black;
-    -fx-opacity: 0.9;
+    -fx-opacity: 1;
     -fx-alignment: center;
-
 }
 
 BorderPane {
-    -fx-background-color:dimgrey;
+    -fx-background-color:gainsboro;
     -fx-border-color: black;
 }
+
+Button {
+
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #60a1ff),
+            linear-gradient(#6da9ff, #60a1ff),
+            linear-gradient(#6da9ff, #60a1ff);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+Button Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+
+
 

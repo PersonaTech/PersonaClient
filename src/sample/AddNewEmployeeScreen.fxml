@@ -11,6 +11,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.AddNewEmployeeScreenController"
+            stylesheets="@/Design/forms.css"
             prefHeight="400.0" prefWidth="600.0">
 
 

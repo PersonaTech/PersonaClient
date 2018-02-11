@@ -219,10 +219,13 @@ public class AddPersonTestDiagnosticController {
         if (personTestFieldsChecker || personChoosingChecker ) {
 
             if(personTestFieldsChecker)
-                System.out.println("One of the Tree test fields is empty!");
+                //System.out.println("One of the Tree test fields is empty!");
+                sampleController.showStage("One of the Person test fields is empty!");
 
-            if (personChoosingChecker)
-                System.out.println(" You must Choose kindergarten , child and picture!!!");
+
+            else if (personChoosingChecker)
+                //System.out.println(" You must Choose kindergarten , child and picture!!!");
+                sampleController.showStage("You must Choose kindergarten , child and picture!");
 
         }else {
 
@@ -264,8 +267,6 @@ public class AddPersonTestDiagnosticController {
             System.out.println(personDrawingTest.toString());
 
 
-
-
             try {
 
                 PersonaSocket.objectOutputStream.writeObject("Add Diagnostic");
@@ -282,9 +283,13 @@ public class AddPersonTestDiagnosticController {
 
                     System.out.println("added diag successfully!!!");
 
+                    sampleController.showStage("added person diagnosis successfully!");
+
                 }else if (authResponse.equals(PersonaSocket.FAIL)) {
 
                     System.out.println("added diag failed!!!");
+
+                    sampleController.showStage("added person diagnosis failed!");
 
                 }
 

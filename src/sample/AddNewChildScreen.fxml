@@ -10,6 +10,7 @@
 <?import javafx.collections.FXCollections?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@/Design/forms.css"
             fx:controller="sample.AddNewChildScreenController"
             prefHeight="400.0" prefWidth="600.0">
 

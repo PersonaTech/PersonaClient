@@ -21,10 +21,8 @@ import java.util.List;
 public class AddNewChildScreenController {
 
     private Stage refToParent;
-
     @FXML
     public Button exitButton;
-
     @FXML
     private ComboBox<String> kNameFT;
     @FXML
@@ -100,6 +98,8 @@ public class AddNewChildScreenController {
 
             System.out.println("One of the child fields is empty!");
 
+            sampleController.showStage("One of the child fields is empty!");
+
         } else {
 
 
@@ -109,15 +109,6 @@ public class AddNewChildScreenController {
                     idTF.getText().toString() ,
                     countyTF.getValue()
             );
-
-            //Picture p1 = new Picture("9988773" , "https://firebasestorage.googleapis.com/v0/b/persona-tech.appspot.com/o/Photos%2Fhouse3.jpg?alt=media&token=03642060-e620-4201-b771-e68df4368b2c" , false , "tree");
-
-
-            //List<Picture> pArr = new ArrayList<Picture>();
-
-            //pArr.add(p1);
-
-            //child.setPictures(pArr);
 
             System.out.println(child.toString());
 
@@ -132,9 +123,13 @@ public class AddNewChildScreenController {
 
                     System.out.println("added child successfully!!!");
 
+                    sampleController.showStage("added new child successfully!");
+
                 }else if (authResponse.equals(PersonaSocket.FAIL)) {
 
                     System.out.println("added child failed!!!");
+
+                    sampleController.showStage("added new child failed!");
 
                 }
 

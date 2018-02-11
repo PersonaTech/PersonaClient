@@ -230,10 +230,21 @@ public class AddTreeTestDiagnosticController {
                         treeLocationTF.getSelectionModel().isEmpty()
                 ;
 
+        boolean treeChoosingChecker =
+                kindergartenCB.getSelectionModel().isEmpty() ||
+                        childIdCB.getSelectionModel().isEmpty() ||
+                        pictureIdCB.getSelectionModel().isEmpty() ;
 
-        if (treeTestFieldsChecker) {
 
-            System.out.println("One of the Tree test fields is empty!");
+        if (treeChoosingChecker || treeTestFieldsChecker) {
+
+            if(treeTestFieldsChecker)
+                sampleController.showStage("One of the Tree test fields is empty!");
+                //System.out.println("One of the Tree test fields is empty!");
+            else if (treeChoosingChecker)
+                sampleController.showStage("You must Choose kindergarten , child and picture!");
+                //System.out.println(" You must Choose kindergarten , child and picture!!!");
+
 
         }else {
 
@@ -291,9 +302,13 @@ public class AddTreeTestDiagnosticController {
 
                     System.out.println("added diag successfully!!!");
 
+                    sampleController.showStage("added tree diagnosis successfully!");
+
                 }else if (authResponse.equals(PersonaSocket.FAIL)) {
 
                     System.out.println("added diag failed!!!");
+
+                    sampleController.showStage("added tree diagnosis failed!");
 
                 }
 

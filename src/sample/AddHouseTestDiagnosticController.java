@@ -226,10 +226,13 @@ public class AddHouseTestDiagnosticController {
         if (houseTestFieldsChecker || houseChoosingChecker ) {
 
             if(houseTestFieldsChecker)
-                System.out.println("One of the Tree test fields is empty!");
+                sampleController.showStage("One of the Tree test fields is empty!");
+                //System.out.println("One of the Tree test fields is empty!");
+            else if (houseChoosingChecker)
+                sampleController.showStage("You must Choose kindergarten , child and picture!");
+                //System.out.println(" You must Choose kindergarten , child and picture!!!");
 
-            if (houseChoosingChecker)
-                System.out.println(" You must Choose kindergarten , child and picture!!!");
+
 
         }else {
 
@@ -284,15 +287,36 @@ public class AddHouseTestDiagnosticController {
 
                 String authResponse = (String)PersonaSocket.objectInputStream.readObject();
 
+                houseSizePercentageSlider.setValue(50);
+                drawingSizePercentageSlider.setValue(50);
+                proportionBetweenElementsSlider.setValue(50);
+                referenceToDoorWindowsSlider.setValue(50);
+                referenceToRoofSlider.setValue(50);
+                diagnosticFreeText.clear();
+
+                kindergartenCB.setPromptText("select kindergarten");
+
+                pictureIdCB.getSelectionModel().clearSelection();
+                pictureIdCB.setValue(null);
+
+                childIdCB.getSelectionModel().clearSelection();
+                childIdCB.setValue(null);
+
                 if (authResponse.equals(PersonaSocket.SUCCESS)){
 
                     System.out.println("added diag successfully!!!");
+
+                    sampleController.showStage("added house diagnosis successfully!");
 
                 }else if (authResponse.equals(PersonaSocket.FAIL)) {
 
                     System.out.println("added diag failed!!!");
 
+                    sampleController.showStage("added house diagnosis failed!");
+
                 }
+
+
 
             } catch (IOException e) {
 
@@ -303,31 +327,6 @@ public class AddHouseTestDiagnosticController {
                 e.printStackTrace();
 
             }
-
-
-
-            houseSizePercentageSlider.setValue(50);
-            drawingSizePercentageSlider.setValue(50);
-            proportionBetweenElementsSlider.setValue(50);
-            referenceToDoorWindowsSlider.setValue(50);
-            referenceToRoofSlider.setValue(50);
-            diagnosticFreeText.clear();
-
-            kindergartenCB.setPromptText("select kindergarten");
-
-            pictureIdCB.getSelectionModel().clearSelection();
-            pictureIdCB.setValue(null);
-
-            childIdCB.getSelectionModel().clearSelection();
-            childIdCB.setValue(null);
-
-
-
-
-
-
-
-
 
 
 

@@ -2,17 +2,27 @@ package sample;
 import ModulesPackage.Employee;
 import ModulesPackage.LoginClass;
 import com.sun.javafx.logging.Logger;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Popup;
+import javafx.stage.PopupBuilder;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,8 +41,6 @@ public class sampleController {
     @FXML
     private Button loginButton;
 
-
-
     @FXML
     public void initialize() {
 
@@ -46,16 +54,58 @@ public class sampleController {
             e.printStackTrace();
         }
 
-        usernameField.setText("per@gmail.com");
-        passwordField.setText("123456");
+        //usernameField.setText("per@gmail.com");
+        //passwordField.setText("123456");
 
         // OR
 
-        //usernameField.setText("itamar@gmail.com");
+        usernameField.setText("itamar@gmail.com");
 
-        //passwordField.setText("99887766");
+        passwordField.setText("99887766");
 
 
+
+    }
+
+    public static void showStage( String msg){
+
+        Stage newStage = new Stage();
+        Group g = new Group();
+        VBox msgWrapper = new VBox();
+        msgWrapper.setAlignment(Pos.CENTER);
+        msgWrapper.setPrefHeight(100);
+        msgWrapper.setPrefWidth(400);
+        Label msgLabel = new Label(msg);
+        msgLabel.setStyle("-fx-text-fill: darkblue");
+        msgWrapper.getChildren().add(msgLabel);
+        HBox comp = new HBox();
+        comp.setAlignment(Pos.CENTER);
+        comp.setPrefHeight(200);
+        comp.setPrefWidth(400);
+        Button okButton = new Button("ok");
+        okButton.setPrefWidth(100);
+        Button CloseButton = new Button("close");
+        CloseButton.setPrefWidth(100);
+        comp.getChildren().add(CloseButton);
+        comp.getChildren().add(okButton);
+
+        okButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                newStage.close();
+            }
+        });
+
+        CloseButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                newStage.close();
+            }
+        });
+
+        g.getChildren().addAll(msgWrapper , comp);
+        Scene stageScene = new Scene(g, 400, 150);
+        newStage.setScene(stageScene);
+        newStage.setTitle("Pop up from Persona!");
+        newStage.show();
     }
 
     @FXML
@@ -140,7 +190,8 @@ public class sampleController {
 
                 System.out.println("wrong username or password !");
 
-                // TODO: 17/12/2017 add screen for alert!!!
+                showStage("Wrong username or password!!!");
+
 
             }else {
 

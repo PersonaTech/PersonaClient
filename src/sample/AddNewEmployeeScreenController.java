@@ -86,6 +86,8 @@ public class AddNewEmployeeScreenController {
 
         if (employeeFieldsChecker) {
             System.out.println("One of the employee fields is empty!");
+
+            sampleController.showStage("One of the employee fields is empty!");
         }
 
 
@@ -121,9 +123,13 @@ public class AddNewEmployeeScreenController {
 
                     System.out.println("added emp successfully!!!");
 
+                    sampleController.showStage("added new employee successfully!");
+
                 }else if (authResponse.equals(PersonaSocket.FAIL)) {
 
                     System.out.println("added emp failed!!!");
+
+                    sampleController.showStage("added new employee failed!");
 
                 }
 
