@@ -30,6 +30,13 @@ import java.util.List;
 
 public class WatchWorkersDiagnosticsController {
 
+    List<TreeDrawingTest> treeDrawingTestList;
+
+    List<HouseDrawingTest> houseDrawingTestList;
+
+    List<PersonDrawingTest> personDrawingTestList;
+
+
 
     List<Employee> listOfEmployees;
 
@@ -70,14 +77,18 @@ public class WatchWorkersDiagnosticsController {
 
             listOfEmployees = (ArrayList<Employee>)PersonaSocket.objectInputStream.readObject();
 
-            List<String> EmployeesNamesList = new ArrayList<>();
-
-            for (Employee c: listOfEmployees) {
-                EmployeesNamesList.add(c.getName());
-            }
-
             if(! listOfEmployees.isEmpty()) {
+
+                List<String> EmployeesNamesList = new ArrayList<>();
+
+                for (Employee c: listOfEmployees) {
+                    EmployeesNamesList.add(c.getName());
+                }
+
                 swCB.setItems(FXCollections.observableArrayList(EmployeesNamesList));
+
+                swCB.setPromptText("select an employee...");
+
 
             }else {
                 System.out.println("failed to load social workers list!!!");
@@ -98,6 +109,8 @@ public class WatchWorkersDiagnosticsController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
                 typeCB.setDisable(false);
+
+                typeCB.setPromptText("pick type...");
 
 
             }
@@ -140,9 +153,9 @@ public class WatchWorkersDiagnosticsController {
 
                             System.out.println("ok here...");
 
-                            List<TreeDrawingTest> treeDrawingTestList = (ArrayList<TreeDrawingTest>) PersonaSocket.objectInputStream.readObject();
+                            treeDrawingTestList = (ArrayList<TreeDrawingTest>) PersonaSocket.objectInputStream.readObject();
 
-                            if(! treeDrawingTestList.isEmpty()) {
+                            if(treeDrawingTestList!=null && !treeDrawingTestList.isEmpty()) {
 
 
                                 List<String> drawingTestuid = new ArrayList<>();
@@ -152,7 +165,6 @@ public class WatchWorkersDiagnosticsController {
                                     drawingTestuid.add(c.getTestId());
 
                                 }
-
 
 
                                 pCB.setItems(FXCollections.observableArrayList(drawingTestuid));
@@ -183,10 +195,10 @@ public class WatchWorkersDiagnosticsController {
                             PersonaSocket.objectOutputStream.writeObject("house");
                             PersonaSocket.objectOutputStream.writeObject(workerUid);
 
-                            List<HouseDrawingTest> houseDrawingTestList =  (ArrayList<HouseDrawingTest>) PersonaSocket.objectInputStream.readObject();
+                            houseDrawingTestList =  (ArrayList<HouseDrawingTest>) PersonaSocket.objectInputStream.readObject();
 
 
-                            if(! houseDrawingTestList.isEmpty()) {
+                            if(houseDrawingTestList!=null && !houseDrawingTestList.isEmpty()) {
 
 
                                 List<String> drawingTestuid = new ArrayList<>();
@@ -228,11 +240,11 @@ public class WatchWorkersDiagnosticsController {
                             PersonaSocket.objectOutputStream.writeObject("person");
                             PersonaSocket.objectOutputStream.writeObject(workerUid);
 
-                            List<PersonDrawingTest> personDrawingTestList =  (ArrayList<PersonDrawingTest>) PersonaSocket.objectInputStream.readObject();
+                            personDrawingTestList =  (ArrayList<PersonDrawingTest>) PersonaSocket.objectInputStream.readObject();
 
 
 
-                            if(! personDrawingTestList.isEmpty()) {
+                            if(personDrawingTestList!=null && !personDrawingTestList.isEmpty()) {
 
                                 List<String> drawingTestuid = new ArrayList<>();
 
