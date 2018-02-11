@@ -12,15 +12,18 @@ public class Picture implements Serializable{
     private String pictureId;
     private String pictureUrl;
     private Boolean isTested;
+    private String type;
+
 
     public Picture(){
 
     }
 
-    public Picture(String pictureId, String pictureUrl, Boolean isTested) {
+    public Picture(String pictureId, String pictureUrl, Boolean isTested , String type) {
         this.pictureId = pictureId;
         this.pictureUrl = pictureUrl;
         this.isTested = isTested;
+        this.type = type;
     }
 
     public String getPictureId() {
@@ -46,4 +49,13 @@ public class Picture implements Serializable{
     public void setTested(Boolean tested) {
         isTested = tested;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }

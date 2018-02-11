@@ -173,14 +173,47 @@ public class AddTreeTestDiagnosticController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
 
-                List<String> picturesList = new ArrayList<>();
+//                List<String> picturesList = new ArrayList<>();
+//
+//                picturesList.add(newValue+" - pic1");
+//                picturesList.add(newValue+" - pic2");
+//                picturesList.add(newValue+" - pic3");
+//                picturesList.add(newValue+" - pic4");
+//
+//                pictureIdCB.setItems(FXCollections.observableArrayList(picturesList));
 
-                picturesList.add(newValue+" - pic1");
-                picturesList.add(newValue+" - pic2");
-                picturesList.add(newValue+" - pic3");
-                picturesList.add(newValue+" - pic4");
+                List<String> childPicturesid = new ArrayList<String>();
 
-                pictureIdCB.setItems(FXCollections.observableArrayList(picturesList));
+                for (Child child: childrenList) {
+
+                    if(child.getChildName().equals(newValue)){
+
+                       if(child.getPictures() != null) {
+
+                           pictureIdCB.setItems(FXCollections.observableArrayList(child.getPictures()));
+
+                       }else {
+
+                           System.out.println("no pictures to show");
+
+                           pictureIdCB.getSelectionModel().clearSelection();
+
+                           pictureIdCB.getItems().clear();
+
+
+                       }
+
+
+                    }
+
+                }
+
+
+
+
+
+
+
 
 
             }
