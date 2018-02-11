@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -29,7 +30,9 @@ public class AddTreeTestDiagnosticController {
 
 
     public Employee refToEmployee;
-    public HBox paneToShowPic;
+
+    public ImageView imageToShow;
+
 
 
     private Stage refToParent;
@@ -57,13 +60,6 @@ public class AddTreeTestDiagnosticController {
 
     @FXML
     public BorderPane borderRoot;
-
-
-    public ImageView myimage;
-
-
-
-
 
 
     public ComboBox kindergartenCB;
@@ -134,21 +130,13 @@ public class AddTreeTestDiagnosticController {
 
                     List<String> childrenNamesList = new ArrayList<>();
 
-                    for (Child c: childrenList) {
-
-                        childrenNamesList.add(c.getChildName());
-
-                    }
-
-
-
                     if(! childrenList.isEmpty()) {
 
-
+                        for (Child c: childrenList) {
+                            childrenNamesList.add(c.getChildName());
+                        }
 
                         childIdCB.setItems(FXCollections.observableArrayList(childrenNamesList));
-
-
 
                     }else {
 
@@ -172,25 +160,13 @@ public class AddTreeTestDiagnosticController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-
-//                List<String> picturesList = new ArrayList<>();
-//
-//                picturesList.add(newValue+" - pic1");
-//                picturesList.add(newValue+" - pic2");
-//                picturesList.add(newValue+" - pic3");
-//                picturesList.add(newValue+" - pic4");
-//
-//                pictureIdCB.setItems(FXCollections.observableArrayList(picturesList));
-
-                List<String> childPicturesid = new ArrayList<String>();
-
                 for (Child child: childrenList) {
 
                     if(child.getChildName().equals(newValue)){
 
                        if(child.getPictures() != null) {
 
-                           pictureIdCB.setItems(FXCollections.observableArrayList(child.getPicIdOfChild()));
+                           pictureIdCB.setItems(FXCollections.observableArrayList(child.getPicIdOfChild("tree")));
 
                        }else {
 
@@ -200,19 +176,11 @@ public class AddTreeTestDiagnosticController {
 
                            pictureIdCB.getItems().clear();
 
-
                        }
-
 
                     }
 
                 }
-
-
-
-
-
-
 
 
 
@@ -221,53 +189,33 @@ public class AddTreeTestDiagnosticController {
 
 
 
+        pictureIdCB.setEditable(true);
 
+        pictureIdCB.getEditor().textProperty().addListener(new ChangeListener<String>(){
 
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
+                String c =  childIdCB.getSelectionModel().getSelectedItem().toString();
 
+                if(newValue.equals("")){
 
+                    imageToShow.getImage().cancel();
+                }else {
 
-//        pictureIdCB.setEditable(true);
-//        pictureIdCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
-//
-//            @Override
-//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//
-//
-//                //// List<String> picturesList = new ArrayList<>();
-//
-//
-//                System.out.println("val ::: " + newValue);
-//
-//                if (newValue.equals("example")){
-//
-////
-////                    ImageView imageView = new ImageView();
-////                    imageView.fitHeightProperty().setValue(200);
-////                    imageView.fitWidthProperty().setValue(200);
-////
-////                    Image image = new Image("http://goo.gl/kYEQl");
-////
-////                    imageView.setImage(image);
-//
-////                    borderRoot.setLeft(imageView);
-//
-////                    paneToShowPic.getChildren().
-//
-//
-//
-//                }
-//
-//
-//
-//
-//
-//
-//
-//            }
-//
-//
-//        });
+                    for (Child child : childrenList) {
+
+                        if (child.getChildName().equals(c)) {
+
+                            imageToShow.setImage(new Image(child.getPicUrlByPicId(newValue)));
+
+                        }
+                    }
+                }
+
+            }
+
+        });
 
 
     }

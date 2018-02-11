@@ -10,6 +10,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +31,7 @@ public class AddHouseTestDiagnosticController {
     @FXML
     public Button submitAddNewDiagnostic;
     public Button exitButton;
+    public ImageView imageToShow;
 
     private Stage refToParent;
 
@@ -88,7 +91,6 @@ public class AddHouseTestDiagnosticController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-
                 try {
 
                     childrenList = new ArrayList<>();
@@ -104,25 +106,20 @@ public class AddHouseTestDiagnosticController {
 
                     List<String> childrenNamesList = new ArrayList<>();
 
-                    for (Child c: childrenList) {
-
-                        childrenNamesList.add(c.getChildName());
-
-                    }
-
-
-
                     if(! childrenList.isEmpty()) {
 
+                        for (Child c: childrenList) {
 
+                            childrenNamesList.add(c.getChildName());
+
+                        }
 
                         childIdCB.setItems(FXCollections.observableArrayList(childrenNamesList));
-
-
 
                     }else {
 
                         System.out.println("failed to load children list!!!");
+
                     }
 
                 } catch (IOException e) {
@@ -143,17 +140,59 @@ public class AddHouseTestDiagnosticController {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
 
-                List<String> picturesList = new ArrayList<>();
+                for (Child child: childrenList) {
 
-                picturesList.add(newValue+" - pic1");
-                picturesList.add(newValue+" - pic2");
-                picturesList.add(newValue+" - pic3");
-                picturesList.add(newValue+" - pic4");
+                    if(child.getChildName().equals(newValue)){
 
-                pictureIdCB.setItems(FXCollections.observableArrayList(picturesList));
+                        if(child.getPictures() != null) {
+
+                            pictureIdCB.setItems(FXCollections.observableArrayList(child.getPicIdOfChild("house")));
+
+                        }else {
+
+                            System.out.println("no pictures to show");
+
+                            pictureIdCB.getSelectionModel().clearSelection();
+
+                            pictureIdCB.getItems().clear();
+
+                        }
+
+                    }
+
+                }
 
 
             }
+        });
+
+        pictureIdCB.setEditable(true);
+
+        pictureIdCB.getEditor().textProperty().addListener(new ChangeListener<String>(){
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+
+                String c =  childIdCB.getSelectionModel().getSelectedItem().toString();
+
+                if(newValue.equals("")){
+
+                    imageToShow.getImage().cancel();
+
+                }else {
+
+                    for (Child child : childrenList) {
+
+                        if (child.getChildName().equals(c)) {
+
+                            imageToShow.setImage(new Image(child.getPicUrlByPicId(newValue)));
+
+                        }
+                    }
+                }
+
+            }
+
         });
 
 
@@ -163,8 +202,6 @@ public class AddHouseTestDiagnosticController {
                 if (yesNoToggleGroup.getSelectedToggle() != null) {
 
                     RadioButton chk = (RadioButton)yesNoToggleGroup.getSelectedToggle();
-
-                    //System.out.println("Selected Radio Button - "+chk.getText());
 
 
                 }

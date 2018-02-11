@@ -8,6 +8,7 @@
 
 <?import javafx.scene.text.Font?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.scene.image.ImageView?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.AddPersonTestDiagnosticController">
@@ -98,9 +99,9 @@
             <ComboBox fx:id="pictureIdCB" promptText="choose picture" prefWidth="300">
             </ComboBox>
 
-            <HBox fx:id="paneToShowPic">
+            <ImageView fx:id="imageToShow" fitHeight="150" fitWidth="150" >
 
-            </HBox>
+            </ImageView>
 
         </VBox>
 
