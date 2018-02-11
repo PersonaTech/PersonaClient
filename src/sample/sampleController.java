@@ -94,6 +94,7 @@ public class sampleController {
                 System.out.println("Login Successfully !!!");
 
                 Employee currentEmployee = (Employee) PersonaSocket.objectInputStream.readObject();
+
                 System.out.println("Current Employee : " + currentEmployee.toString());
 
                 if (currentEmployee.getUserType().equals("Manager")) {

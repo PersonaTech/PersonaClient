@@ -31,11 +31,8 @@ import java.util.List;
 public class WatchWorkersDiagnosticsController {
 
     public List<TreeDrawingTest> treeDrawingTestList;
-
     public List<HouseDrawingTest> houseDrawingTestList;
-
     public List<PersonDrawingTest> personDrawingTestList;
-
 
     public List<Employee> listOfEmployees;
 
@@ -61,13 +58,9 @@ public class WatchWorkersDiagnosticsController {
     public void initData(Stage refToParent){
 
         this.refToParent = refToParent;
-
         ShowButton.setDisable(true);
         typeCB.setDisable(true);
         pCB.setDisable(true);
-
-
-
         listOfEmployees = new ArrayList<>();
 
         try {
@@ -257,25 +250,23 @@ public class WatchWorkersDiagnosticsController {
 
                         for (TreeDrawingTest c: treeDrawingTestList) {
 
-                            if(c.getTestId().equals(picId)){
+                            if (c.getTestId().equals(picId)) {
 
-                                String childId = c.getChildId();
-
+                                imageToShow.setImage(new Image(c.getRefToPicture().getPictureUrl()));
 
                             }
 
                         }
-
-
-
-
 
                         break;
 
                     case "House":
 
                         for (HouseDrawingTest c: houseDrawingTestList) {
+
                             if(c.getTestId().equals(picId)){
+
+                                imageToShow.setImage(new Image(c.getRefToPicture().getPictureUrl()));
 
                             }
                         }
@@ -285,32 +276,17 @@ public class WatchWorkersDiagnosticsController {
                     case "Person":
 
                         for (PersonDrawingTest c: personDrawingTestList) {
+
                             if(c.getTestId().equals(picId)){
+
+                                imageToShow.setImage(new Image(c.getRefToPicture().getPictureUrl()));
 
                             }
                         }
 
                         break;
 
-
-
-
-
-
                 }
-
-
-
-
-
-
-                //PersonaSocket.objectOutputStream.writeObject("get Employees");
-                //
-
-
-                // imageToShow.setImage(new Image("http://goo.gl/kYEQl"));
-
-
 
                 ShowButton.setDisable(false);
 
@@ -345,6 +321,7 @@ public class WatchWorkersDiagnosticsController {
                         gridpane.setAlignment(Pos.CENTER);
                         gridpane.setHgap(60);
                         gridpane.setVgap(10);
+                        gridpane.setId("gridi");
 
                         Label labels[] = new Label[7];
 
@@ -392,6 +369,7 @@ public class WatchWorkersDiagnosticsController {
                         gridpane.setAlignment(Pos.CENTER);
                         gridpane.setHgap(60);
                         gridpane.setVgap(10);
+                        gridpane.setId("gridi");
 
                         Label labels[] = new Label[11];
 
@@ -447,6 +425,7 @@ public class WatchWorkersDiagnosticsController {
                         gridpane.setAlignment(Pos.CENTER);
                         gridpane.setHgap(60);
                         gridpane.setVgap(10);
+                        gridpane.setId("gridi");
 
                         Label labels[] = new Label[7];
 

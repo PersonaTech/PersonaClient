@@ -10,21 +10,31 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.WatchWorkersDiagnosticsController"
-            fx:id="borderPaneWatch">
+            fx:id="borderPaneWatch"
+            stylesheets="@../Design/watchDiag.css">
 
 
     <left>
 
         <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
 
-            <Label text="Choose social worker"></Label>
+            <Label text="Choose social worker">
+                <font>
+                    <Font name="Comic Sans MS bold" size="13.0" ></Font>
+                </font>
+            </Label>
             <ComboBox fx:id="swCB" promptText="select social worker ... " prefWidth="500" >
             </ComboBox>
 
-            <Label text="Choose drawing type"></Label>
+            <Label text="Choose drawing type">
+                <font>
+                    <Font name="Comic Sans MS bold" size="13.0" ></Font>
+                </font>
+            </Label>
             <ComboBox fx:id="typeCB" promptText="select drawing type ... " prefWidth="500" >
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -36,13 +46,17 @@
             </ComboBox>
 
 
-            <Label text="Choose test"></Label>
+            <Label text="Choose test">
+                <font>
+                    <Font name="Comic Sans MS bold" size="13.0" ></Font>
+                </font>
+            </Label>
             <ComboBox fx:id="pCB" promptText="select painting... " prefWidth="500" >
             </ComboBox>
 
             <Label text="preview of selected image: "></Label>
 
-            <ImageView fx:id="imageToShow" >
+            <ImageView fx:id="imageToShow" fitHeight="200" fitWidth="200">
 
             </ImageView>
 
@@ -54,7 +68,7 @@
 
     <bottom>
         <HBox alignment="CENTER" translateY="-10">
-            <Button fx:id="ShowButton" text="Show Performance" prefHeight="40" prefWidth="270"  onAction="#onShowButtonClicked" ></Button>
+            <Button fx:id="ShowButton" text="Show Diagnosis" prefHeight="40" prefWidth="270"  onAction="#onShowButtonClicked" ></Button>
             <Button fx:id="ExitButton" text="Exit" prefHeight="40" prefWidth="270"  onAction="#onExitButtonClicked" ></Button>
         </HBox>
     </bottom>
@@ -64,6 +78,17 @@
 
 
     </center>
+
+    <top >
+        <HBox alignment="CENTER" prefHeight="50" translateY="50">
+
+            <Label text="Diagnosis details ">
+                <font>
+                    <Font name="Comic Sans MS bold" size="28.0"  ></Font>
+                </font>
+            </Label>
+        </HBox>
+    </top>
 
 
 </BorderPane>

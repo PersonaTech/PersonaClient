@@ -110,10 +110,10 @@ public class AddNewChildScreenController {
                     countyTF.getValue()
             );
 
-            //Picture p1 = new Picture("91827364" , "https://firebasestorage.googleapis.com/v0/b/persona-tech.appspot.com/o/Photos%2Fhouse3.jpg?alt=media&token=03642060-e620-4201-b771-e68df4368b2c" , false , "tree");
+            //Picture p1 = new Picture("9988773" , "https://firebasestorage.googleapis.com/v0/b/persona-tech.appspot.com/o/Photos%2Fhouse3.jpg?alt=media&token=03642060-e620-4201-b771-e68df4368b2c" , false , "tree");
 
 
-           // List<Picture> pArr = new ArrayList<Picture>();
+            //List<Picture> pArr = new ArrayList<Picture>();
 
             //pArr.add(p1);
 
@@ -145,15 +145,18 @@ public class AddNewChildScreenController {
             }
 
 
+            kNameFT.getSelectionModel().clearSelection();
+            kNameFT.setValue(null);
+
+            fNameTF.clear();
+            lNameTF.clear();
+            idTF.clear();
+            ageTF.clear();
+
+            countyTF.getSelectionModel().clearSelection();
+            countyTF.setValue(null);
+
         }
-
-
-
-
-
-
-
-
 
     }
 

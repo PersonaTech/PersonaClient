@@ -169,7 +169,7 @@ public class ManagerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("watch diagnostics ");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
 
             WatchWorkersDiagnosticsController controller = fxmlLoader.<WatchWorkersDiagnosticsController>getController();
             controller.initData((Stage) watchDiagnosticsButton.getScene().getWindow());

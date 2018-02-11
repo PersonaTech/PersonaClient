@@ -6,21 +6,63 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            fx:id="borderPaneWatch"
+            stylesheets="@../Design/watchDiag.css"
             fx:controller="sample.WatchPersonTestDiagnosticScreenController"
             >
+
+    <top>
+        <HBox alignment="CENTER" prefHeight="50" translateY="50">
+            <Label text="Diagnosis of Tree test ">
+                <font>
+                    <Font name="Comic Sans MS bold" size="28.0"  ></Font>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <center>
+
+    </center>
 
     <bottom>
 
         <HBox alignment="CENTER" translateY="-10">
 
-            <Button fx:id="submitAddNewDiagnostic"  text="Add Diagnostic" prefHeight="40" prefWidth="150" onAction="#onSubmitButtonClicked"> </Button>
-
+            <Button fx:id="submitAddNewDiagnostic"  text="Show Diagnostic" prefHeight="40" prefWidth="150" onAction="#onSubmitButtonClicked"> </Button>
             <Button fx:id="exitButton" text="Exit" prefHeight="40" prefWidth="150"  onAction="#onExitButtonClicked" > </Button>
 
         </HBox>
 
     </bottom>
+
+    <left>
+
+        <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
+
+            <Label text="Choose Diagnosis to show">
+                <font>
+                    <Font name="Comic Sans MS bold" size="13.0" ></Font>
+                </font>
+            </Label>
+            <ComboBox fx:id="diagIdCB" promptText="select diagnosis... " prefWidth="500" >
+            </ComboBox>
+
+            <ImageView fx:id="imageToShow" fitHeight="200" fitWidth="200">
+
+            </ImageView>
+
+
+        </VBox>
+
+    </left>
+
+
+
+
 
 </BorderPane>

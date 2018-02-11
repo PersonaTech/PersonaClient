@@ -1,0 +1,14 @@
+#gridi {
+    -fx-font-size: 13pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 0.9;
+    -fx-alignment: center;
+
+}
+
+BorderPane {
+    -fx-background-color:dimgrey;
+    -fx-border-color: black;
+}
+

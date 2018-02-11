@@ -307,11 +307,30 @@ public class AddTreeTestDiagnosticController {
 
             }
 
+
+
+
+            treeSizePercentageSlider.setValue(50);
+            drawingSizePercentageSlider.setValue(50);
+            proportionBetweenElementsSlider.setValue(50);
+            referenceToLeafsSlider.setValue(50);
+            sidewaysMovementSlider.setValue(50);
+            diagnosticFreeText.clear();
+
+
+            treeLocationTF.getSelectionModel().clearSelection();
+            treeLocationTF.setValue(null);
+
+            kindergartenCB.setPromptText("select kindergarten");
+
+            pictureIdCB.getSelectionModel().clearSelection();
+            pictureIdCB.setValue(null);
+
+            childIdCB.getSelectionModel().clearSelection();
+            childIdCB.setValue(null);
+
+
         }
-
-
-
-
 
 
     }

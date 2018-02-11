@@ -306,6 +306,31 @@ public class AddHouseTestDiagnosticController {
 
 
 
+            houseSizePercentageSlider.setValue(50);
+            drawingSizePercentageSlider.setValue(50);
+            proportionBetweenElementsSlider.setValue(50);
+            referenceToDoorWindowsSlider.setValue(50);
+            referenceToRoofSlider.setValue(50);
+            diagnosticFreeText.clear();
+
+            kindergartenCB.setPromptText("select kindergarten");
+
+            pictureIdCB.getSelectionModel().clearSelection();
+            pictureIdCB.setValue(null);
+
+            childIdCB.getSelectionModel().clearSelection();
+            childIdCB.setValue(null);
+
+
+
+
+
+
+
+
+
+
+
         }
 
 

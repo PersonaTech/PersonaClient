@@ -83,7 +83,12 @@ public class Child implements Serializable {
         List<String> s = new ArrayList<>();
         for (Picture p: this.pictures) {
 
-            if(type.equals(p.getType()) && !p.getTested()) {
+            System.out.println("id is ----> " + p.getPictureId());
+            System.out.println("type is ----> " + p.getType());
+            System.out.println("tested is ----> " + p.getIsTested());
+            System.out.println("url is ----> " + p.getPictureUrl());
+
+            if(type.equals(p.getType()) && !p.getIsTested()) {
 
                 s.add(p.getPictureId());
 

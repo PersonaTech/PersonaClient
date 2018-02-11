@@ -104,7 +104,6 @@ public class AddNewEmployeeScreenController {
 
 
             System.out.println(loginClass.toString());
-
             System.out.println(employee.toString());
 
 
@@ -134,6 +133,17 @@ public class AddNewEmployeeScreenController {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+
+            usernameTF.clear();
+            passwordTF.clear();
+            fNameTF.clear();
+            lNameTF.clear();
+            idTF.clear();
+            ageTF.clear();
+            addressTF.clear();
+            phoneNumberTF.clear();
+            countyTF.getSelectionModel().clearSelection();
+            countyTF.setValue(null);
 
 
         }

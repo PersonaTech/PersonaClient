@@ -264,6 +264,8 @@ public class AddPersonTestDiagnosticController {
             System.out.println(personDrawingTest.toString());
 
 
+
+
             try {
 
                 PersonaSocket.objectOutputStream.writeObject("Add Diagnostic");
@@ -295,6 +297,34 @@ public class AddPersonTestDiagnosticController {
                 e.printStackTrace();
 
             }
+
+
+
+
+
+            personSizePercentageSlider.setValue(50);
+            drawingSizePercentageSlider.setValue(50);
+            proportionBetweenElementsSlider.setValue(50);
+
+            LegsIsExist.setSelected(false);
+            ArmsIsExist.setSelected(false);
+            headIsExist.setSelected(false);
+            eyesIsExist.setSelected(false);
+            hairIsExist.setSelected(false);
+            mouthIsExist.setSelected(false);
+
+            numOfClothingCB.getSelectionModel().clearSelection();
+            numOfClothingCB.setValue(null);
+
+            diagnosticFreeText.clear();
+
+            kindergartenCB.setPromptText("select kindergarten");
+
+            pictureIdCB.getSelectionModel().clearSelection();
+            pictureIdCB.setValue(null);
+
+            childIdCB.getSelectionModel().clearSelection();
+            childIdCB.setValue(null);
 
         }
 

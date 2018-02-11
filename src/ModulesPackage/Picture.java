@@ -42,12 +42,12 @@ public class Picture implements Serializable{
         this.pictureUrl = pictureUrl;
     }
 
-    public Boolean getTested() {
+    public Boolean getIsTested() {
         return isTested;
     }
 
-    public void setTested(Boolean tested) {
-        isTested = tested;
+    public void setIsTested(Boolean isTested) {
+        this.isTested = isTested;
     }
 
     public String getType() {
