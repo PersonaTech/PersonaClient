@@ -110,14 +110,14 @@ public class AddNewChildScreenController {
                     countyTF.getValue()
             );
 
-            Picture p1 = new Picture("91827364" , "https://firebasestorage.googleapis.com/v0/b/persona-tech.appspot.com/o/Photos%2Fhouse3.jpg?alt=media&token=03642060-e620-4201-b771-e68df4368b2c" , false);
+            //Picture p1 = new Picture("91827364" , "https://firebasestorage.googleapis.com/v0/b/persona-tech.appspot.com/o/Photos%2Fhouse3.jpg?alt=media&token=03642060-e620-4201-b771-e68df4368b2c" , false , "tree");
 
 
-            List<Picture> pArr = new ArrayList<Picture>();
+           // List<Picture> pArr = new ArrayList<Picture>();
 
-            pArr.add(p1);
+            //pArr.add(p1);
 
-            child.setPictures(pArr);
+            //child.setPictures(pArr);
 
             System.out.println(child.toString());
 

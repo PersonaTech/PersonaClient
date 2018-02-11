@@ -78,6 +78,30 @@ public class Child implements Serializable {
         this.pictures = pictures;
     }
 
+    public List<String> getPicIdOfChild(){
+
+        List<String> s = new ArrayList<>();
+        for (Picture p: this.pictures) {
+
+            s.add(p.getPictureId());
+
+        }
+        return s;
+    }
+
+    public String getPicUrlByPicId(String pid){
+
+        for (Picture p: this.pictures) {
+
+            if(p.getPictureId().equals(pid))
+
+                return p.getPictureUrl();
+
+        }
+        return null;
+
+    }
+
     public String toString(){
 
         return getClass().getName() + " kindergarten name = " + this.getKindergarten() + " child name = "

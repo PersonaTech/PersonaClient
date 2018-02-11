@@ -190,7 +190,7 @@ public class AddTreeTestDiagnosticController {
 
                        if(child.getPictures() != null) {
 
-                           pictureIdCB.setItems(FXCollections.observableArrayList(child.getPictures()));
+                           pictureIdCB.setItems(FXCollections.observableArrayList(child.getPicIdOfChild()));
 
                        }else {
 
