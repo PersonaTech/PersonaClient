@@ -37,7 +37,6 @@ public class WatchWorkersDiagnosticsController {
     List<PersonDrawingTest> personDrawingTestList;
 
 
-
     List<Employee> listOfEmployees;
 
     @FXML
@@ -284,24 +283,6 @@ public class WatchWorkersDiagnosticsController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 pCB.setDisable(false);
 
 
@@ -327,31 +308,138 @@ public class WatchWorkersDiagnosticsController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     public void onShowButtonClicked(ActionEvent actionEvent) {
 
+        String type = typeCB.getSelectionModel().getSelectedItem().toString();
 
+        switch (type){
+
+            case "Tree":
+
+                String u = pCB.getSelectionModel().getSelectedItem().toString();
+
+                for (TreeDrawingTest t : treeDrawingTestList)
+                {
+                    if(u.equals(t.getTestId())){
+
+
+                        GridPane gridpane = new GridPane();
+                        gridpane.setPadding(new Insets(15, 20, 15, 20));
+                        gridpane.setAlignment(Pos.CENTER);
+                        gridpane.setHgap(60);
+                        gridpane.setVgap(10);
+
+                        Label labels[] = new Label[7];
+
+                        labels[0] = new Label("Tree size");
+                        labels[1] = new Label("Drawing size");
+                        labels[2] = new Label("Proportion");
+                        labels[3] = new Label("reference to leafs");
+                        labels[4] = new Label("Sideways movement");
+                        labels[5] = new Label("Tree location");
+                        labels[6] = new Label("Psychological diagnosis");
+
+                        Label data[] = new Label[7];
+
+                        data[0] = new Label(Integer.toString(t.getTreeSizePercentage()));
+                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentage()));
+                        data[2]= new Label(Integer.toString(t.getProportionBetweenElements()));
+                        data[3] = new Label(Integer.toString(t.getReferenceToLeafs()));
+                        data[4]= new Label(Integer.toString(t.getSidewaysMovement()));
+                        data[5]= new Label(t.getTreeLocation());
+                        data[6]= new Label(t.getDiagnosticFreeText());
+                        TextArea res7 = new TextArea("here will be the diagnosis");
+
+                        for (int i=0 ; i< 6 ; i++) {
+
+                            gridpane.add(labels[i] , 0 , i );
+                            gridpane.add(data[i] , 1 , i );
+
+                        }
+
+                        borderPaneWatch.setCenter(gridpane);
+
+                        System.out.println("complete load");
+                    }
+                }
+
+                break;
+
+            case "Person":
+
+                /*
+
+                String u = pCB.getSelectionModel().getSelectedItem().toString();
+
+                for (PersonDrawingTest t : PersonDrawingTest)
+                {
+                    if(u.equals(t.getTestId())){
+
+                        GridPane gridpane = new GridPane();
+                        gridpane.setPadding(new Insets(15, 20, 15, 20));
+                        gridpane.setAlignment(Pos.CENTER);
+                        gridpane.setHgap(60);
+                        gridpane.setVgap(10);
+
+                        Label labels[] = new Label[11];
+
+                        labels[0] = new Label("Tree size");
+                        labels[1] = new Label("Drawing size");
+                        labels[2] = new Label("Proportion");
+                        labels[3] = new Label("headIsExist");
+                        labels[4] = new Label("LegsIsExist");
+                        labels[5] = new Label("ArmsIsExist");
+                        labels[6] = new Label("eyesIsExist");
+                        labels[6] = new Label("mouthIsExist");
+                        labels[6] = new Label("hairIsExist");
+                        labels[6] = new Label("numberOfClothing");
+                        labels[6] = new Label("Psychological diagnosis");
+
+                        Label data[] = new Label[11];
+
+//                        data[0] = new Label(Integer.toString(t.getPersonSizePercentageSlider()));
+//                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
+//                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
+//                        data[3] = new Label(Integer.toString(t.getHeadIsExist()));
+//                        data[4]= new Label(Integer.toString(t.getLegsIsExist()));
+//                        data[5]= new Label(t.getArmsIsExist());
+//                        data[6]= new Label(t.getEyesIsExist());
+//                        data[7]= new Label(t.getEyesIsExist());
+//                        data[8]= new Label(t.getEyesIsExist());
+//                        data[9]= new Label(t.getEyesIsExist());
+                        TextArea res7 = new TextArea("here will be the diagnosis");
+
+                        for (int i=0 ; i< 6 ; i++) {
+
+                            gridpane.add(labels[i] , 0 , i );
+                            gridpane.add(data[i] , 1 , i );
+
+                        }
+
+                        borderPaneWatch.setCenter(gridpane);
+
+                        System.out.println("complete load");
+                    }
+                }
+
+*/
+
+                break;
+
+            case "House":
+                break;
+
+
+
+
+        };
+
+
+
+
+        /*
 
         String worker;
         String picType;
@@ -429,6 +517,9 @@ public class WatchWorkersDiagnosticsController {
             default:
 
         }
+
+
+        */
 
 
 

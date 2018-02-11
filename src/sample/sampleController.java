@@ -40,30 +40,20 @@ public class sampleController {
         //loginButton.setDisable(true);
         // at the beginnings disable the login button until filled all required fields
 
-
         try {
             PersonaSocket personaSocket = new PersonaSocket();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-//        Image image = new Image("@../Photos/logo.png");
-//        loginPicImageView = new ImageView();
-//
-//        loginPicImageView.setImage(image);
-//
-//
-//
-
-        usernameField.setText("per@gmail.com");
-        passwordField.setText("123456");
-
+        //usernameField.setText("per@gmail.com");
+        //passwordField.setText("123456");
 
         // OR
 
-        //usernameField.setText("itamar@gmail.com");
+        usernameField.setText("itamar@gmail.com");
 
-        //passwordField.setText("123456");
+        passwordField.setText("99887766");
 
 
     }

@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TextField?>
 
 
+<?import javafx.scene.control.PasswordField?>
 <GridPane fx:controller="sample.sampleController"
           xmlns:fx="http://javafx.com/fxml"
           alignment="center" hgap="10" vgap="10"
@@ -26,7 +27,7 @@
         </image>
     </ImageView>
 
-    <Label text="Username is Ben!!!!" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER"> </Label>
+    <Label text="Username" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER"> </Label>
 
     <TextField fx:id="usernameField" GridPane.rowIndex="2" GridPane.columnIndex="0"
                GridPane.halignment="CENTER" promptText="Username" alignment="CENTER"
@@ -37,10 +38,10 @@
     <Label text="Password" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" > </Label>
 
 
-    <TextField fx:id="passwordField" GridPane.rowIndex="4" GridPane.columnIndex="0"
+    <PasswordField fx:id="passwordField" GridPane.rowIndex="4" GridPane.columnIndex="0"
                GridPane.halignment="CENTER" promptText="Password"  alignment="CENTER"
                onKeyReleased="#handleKeyReleased">
-    </TextField>
+    </PasswordField>
 
 
     <CheckBox fx:id="rememberMeField" text="remember me" GridPane.rowIndex="5" GridPane.columnIndex="0"

@@ -9,7 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.ManagerMenuScreenController">
+            fx:controller="sample.ManagerMenuScreenController"
+            stylesheets="@../Design/menu_menager.css"
+                                                    >
 
     <top>
 
@@ -23,9 +25,9 @@
 
             </columnConstraints>
 
-            <Label text="Create a .. " GridPane.rowIndex="0" GridPane.columnIndex="0" >
+            <Label text="Create a .. " GridPane.rowIndex="0" GridPane.columnIndex="0" translateX="20" >
                 <font>
-                    <Font size="30"  ></Font>
+                    <Font size="50"  ></Font>
                 </font>
             </Label>
             <Button fx:id="addSwButton" text="Create new Social Worker" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
@@ -36,7 +38,7 @@
 
             <Label text="Watch on .. " GridPane.rowIndex="0" GridPane.columnIndex="1">
                 <font>
-                    <Font size="30" ></Font>
+                    <Font size="50" ></Font>
                 </font>
             </Label>
 

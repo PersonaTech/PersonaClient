@@ -1,6 +1,8 @@
 package ModulesPackage;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by benshmuel on 03/12/2017.
@@ -14,6 +16,8 @@ public class Child implements Serializable {
     private String childID;
     private String county;
 
+    private List<Picture> pictures;
+
     public Child() {
     }
 
@@ -23,6 +27,7 @@ public class Child implements Serializable {
         this.childAge = childAge;
         this.childID = childID;
         this.county = county;
+        this.pictures = new ArrayList<Picture>();
     }
 
     public String getKindergarten() {
@@ -63,6 +68,14 @@ public class Child implements Serializable {
 
     public void setCounty(String county) {
         this.county = county;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 
     public String toString(){

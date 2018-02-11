@@ -192,15 +192,84 @@ public class SocialWorkerMenuScreenController {
 
     private void lunchWatchTreeTestDiagnosticScreen(ActionEvent event) {
 
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("WatchTreeTestDiagnosticScreen.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("Tree Test Watch");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+
+            WatchTreeTestDiagnosticScreenController controller = fxmlLoader.<WatchTreeTestDiagnosticScreenController>getController();
+            controller.initData((Stage) watchTreeTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
+
+            watchTreeTestDiagnosticButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+
     }
 
 
 
     private void lunchWatchPersonTestDiagnosticScreen(ActionEvent event) {
 
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("WatchPersonTestDiagnosticScreen.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("Person Test Watch");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+
+            WatchPersonTestDiagnosticScreenController controller = fxmlLoader.<WatchPersonTestDiagnosticScreenController>getController();
+            controller.initData((Stage) watchPersonTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
+
+            watchPersonTestDiagnosticButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
     }
 
     private void lunchWatchHouseTestDiagnosticScreen(ActionEvent event) {
+
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("WatchHouseTestDiagnosticScreen.fxml"));
+
+            Stage stage = new Stage();
+            stage.setTitle("House Test Watch");
+
+            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+
+            WatchHouseTestDiagnosticScreenController controller = fxmlLoader.<WatchHouseTestDiagnosticScreenController>getController();
+            controller.initData((Stage) watchHouseTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
+
+            watchHouseTestDiagnosticButton.getScene().getWindow().hide();
+            stage.show();
+
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
 
     }
 
