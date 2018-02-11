@@ -46,14 +46,14 @@ public class sampleController {
             e.printStackTrace();
         }
 
-        //usernameField.setText("per@gmail.com");
-        //passwordField.setText("123456");
+        usernameField.setText("per@gmail.com");
+        passwordField.setText("123456");
 
         // OR
 
-        usernameField.setText("itamar@gmail.com");
+        //usernameField.setText("itamar@gmail.com");
 
-        passwordField.setText("99887766");
+        //passwordField.setText("99887766");
 
 
     }

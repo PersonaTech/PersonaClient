@@ -73,7 +73,6 @@ public class WatchWorkersDiagnosticsController {
         try {
 
             PersonaSocket.objectOutputStream.writeObject("get Employees");
-
             listOfEmployees = (ArrayList<Employee>)PersonaSocket.objectInputStream.readObject();
 
             if(! listOfEmployees.isEmpty()) {
@@ -85,14 +84,11 @@ public class WatchWorkersDiagnosticsController {
                 }
 
                 swCB.setItems(FXCollections.observableArrayList(EmployeesNamesList));
-
                 swCB.setPromptText("select an employee...");
-
 
             }else {
                 System.out.println("failed to load social workers list!!!");
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -101,30 +97,24 @@ public class WatchWorkersDiagnosticsController {
         }
 
         swCB.setEditable(true);
-
         swCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
                 typeCB.setDisable(false);
-
                 typeCB.setPromptText("pick type...");
-
 
             }
         });
 
         typeCB.setEditable(true);
-
         typeCB.getEditor().textProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-
                 String workerUid = "";
-
                 String workerName = swCB.getSelectionModel().getSelectedItem().toString();
 
                 for ( Employee employee: listOfEmployees) {
@@ -156,25 +146,17 @@ public class WatchWorkersDiagnosticsController {
 
                             if(treeDrawingTestList!=null && !treeDrawingTestList.isEmpty()) {
 
-
                                 List<String> drawingTestuid = new ArrayList<>();
 
                                 for (TreeDrawingTest c: treeDrawingTestList) {
-
                                     drawingTestuid.add(c.getTestId());
-
                                 }
-
-
                                 pCB.setItems(FXCollections.observableArrayList(drawingTestuid));
 
                             }else {
 
                                 System.out.println("failed to load tests list!!!");
                             }
-
-
-
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -196,18 +178,12 @@ public class WatchWorkersDiagnosticsController {
 
                             houseDrawingTestList =  (ArrayList<HouseDrawingTest>) PersonaSocket.objectInputStream.readObject();
 
-
                             if(houseDrawingTestList!=null && !houseDrawingTestList.isEmpty()) {
 
-
                                 List<String> drawingTestuid = new ArrayList<>();
-
                                 for (HouseDrawingTest c: houseDrawingTestList) {
-
                                     drawingTestuid.add(c.getTestId());
-
                                 }
-
 
                                 pCB.setItems(FXCollections.observableArrayList(drawingTestuid));
 
@@ -216,18 +192,11 @@ public class WatchWorkersDiagnosticsController {
                                 System.out.println("failed to load tests list!!!");
                             }
 
-
-
-
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }
-
-
-
 
                         break;
 
@@ -241,16 +210,11 @@ public class WatchWorkersDiagnosticsController {
 
                             personDrawingTestList =  (ArrayList<PersonDrawingTest>) PersonaSocket.objectInputStream.readObject();
 
-
-
                             if(personDrawingTestList!=null && !personDrawingTestList.isEmpty()) {
 
                                 List<String> drawingTestuid = new ArrayList<>();
-
                                 for (PersonDrawingTest c: personDrawingTestList) {
-
                                     drawingTestuid.add(c.getTestId());
-
                                 }
 
                                 pCB.setItems(FXCollections.observableArrayList(drawingTestuid));
@@ -260,32 +224,17 @@ public class WatchWorkersDiagnosticsController {
                                 System.out.println("failed to load tests list!!!");
                             }
 
-
-
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }
 
-
-
-
-
-
                         break;
-
-
 
                 };
 
-
-
-
                 pCB.setDisable(false);
-
-
 
             }
 
@@ -312,18 +261,19 @@ public class WatchWorkersDiagnosticsController {
 
     public void onShowButtonClicked(ActionEvent actionEvent) {
 
+        //get the type of the picture
         String type = typeCB.getSelectionModel().getSelectedItem().toString();
+
+        //get the id of the picture
+        String u = pCB.getSelectionModel().getSelectedItem().toString();
 
         switch (type){
 
             case "Tree":
 
-                String u = pCB.getSelectionModel().getSelectedItem().toString();
-
                 for (TreeDrawingTest t : treeDrawingTestList)
                 {
                     if(u.equals(t.getTestId())){
-
 
                         GridPane gridpane = new GridPane();
                         gridpane.setPadding(new Insets(15, 20, 15, 20));
@@ -350,9 +300,8 @@ public class WatchWorkersDiagnosticsController {
                         data[4]= new Label(Integer.toString(t.getSidewaysMovement()));
                         data[5]= new Label(t.getTreeLocation());
                         data[6]= new Label(t.getDiagnosticFreeText());
-                        TextArea res7 = new TextArea("here will be the diagnosis");
 
-                        for (int i=0 ; i< 6 ; i++) {
+                        for (int i=0 ; i < 7 ; i++) {
 
                             gridpane.add(labels[i] , 0 , i );
                             gridpane.add(data[i] , 1 , i );
@@ -369,11 +318,7 @@ public class WatchWorkersDiagnosticsController {
 
             case "Person":
 
-                /*
-
-                String u = pCB.getSelectionModel().getSelectedItem().toString();
-
-                for (PersonDrawingTest t : PersonDrawingTest)
+                for (PersonDrawingTest t : personDrawingTestList)
                 {
                     if(u.equals(t.getTestId())){
 
@@ -392,26 +337,26 @@ public class WatchWorkersDiagnosticsController {
                         labels[4] = new Label("LegsIsExist");
                         labels[5] = new Label("ArmsIsExist");
                         labels[6] = new Label("eyesIsExist");
-                        labels[6] = new Label("mouthIsExist");
-                        labels[6] = new Label("hairIsExist");
-                        labels[6] = new Label("numberOfClothing");
-                        labels[6] = new Label("Psychological diagnosis");
+                        labels[7] = new Label("mouthIsExist");
+                        labels[8] = new Label("hairIsExist");
+                        labels[9] = new Label("numberOfClothing");
+                        labels[10] = new Label("Psychological diagnosis");
 
                         Label data[] = new Label[11];
 
-//                        data[0] = new Label(Integer.toString(t.getPersonSizePercentageSlider()));
-//                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
-//                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
-//                        data[3] = new Label(Integer.toString(t.getHeadIsExist()));
-//                        data[4]= new Label(Integer.toString(t.getLegsIsExist()));
-//                        data[5]= new Label(t.getArmsIsExist());
-//                        data[6]= new Label(t.getEyesIsExist());
-//                        data[7]= new Label(t.getEyesIsExist());
-//                        data[8]= new Label(t.getEyesIsExist());
-//                        data[9]= new Label(t.getEyesIsExist());
-                        TextArea res7 = new TextArea("here will be the diagnosis");
+                        data[0] = new Label(Integer.toString(t.getPersonSizePercentageSlider()));
+                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
+                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
+                        data[3] = new Label(t.getHeadIsExist().toString());
+                        data[4]= new Label(t.getLegsIsExist().toString());
+                        data[5]= new Label(t.getArmsIsExist().toString());
+                        data[6]= new Label(t.getEyesIsExist().toString());
+                        data[7]= new Label(t.getEyesIsExist().toString());
+                        data[8]= new Label(t.getEyesIsExist().toString());
+                        data[9]= new Label(t.getEyesIsExist().toString());
+                        data[10]= new Label(t.getDiagnosticFreeText());
 
-                        for (int i=0 ; i< 6 ; i++) {
+                        for (int i=0 ; i < 11 ; i++) {
 
                             gridpane.add(labels[i] , 0 , i );
                             gridpane.add(data[i] , 1 , i );
@@ -424,11 +369,15 @@ public class WatchWorkersDiagnosticsController {
                     }
                 }
 
-*/
+
 
                 break;
 
             case "House":
+
+
+
+
                 break;
 
 
