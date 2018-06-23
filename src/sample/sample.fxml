@@ -13,56 +13,69 @@
 
 
 <?import javafx.scene.control.PasswordField?>
-<GridPane fx:controller="sample.sampleController"
-          xmlns:fx="http://javafx.com/fxml"
-          alignment="center" hgap="10" vgap="10"
-          gridLinesVisible="false"
-          stylesheets="@../Design/login_css.css" >
-
-    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-
-    <ImageView fx:id="loginPicImageView" GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="180.0" fitWidth="250.0">
-        <image >
-            <Image url="@../Photos/logo.png"/>
-        </image>
-    </ImageView>
-
-    <Label text="Username" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER"> </Label>
-
-    <TextField fx:id="usernameField" GridPane.rowIndex="2" GridPane.columnIndex="0"
-               GridPane.halignment="CENTER" promptText="Username" alignment="CENTER"
-                onKeyReleased="#handleKeyReleased">
-    </TextField>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane fx:controller="sample.sampleController"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@../Design/login_css.css">
 
 
-    <Label text="Password" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" > </Label>
 
 
-    <PasswordField fx:id="passwordField" GridPane.rowIndex="4" GridPane.columnIndex="0"
-               GridPane.halignment="CENTER" promptText="Password"  alignment="CENTER"
-               onKeyReleased="#handleKeyReleased">
-    </PasswordField>
+
+    <center>
+
+        <VBox alignment="CENTER" >
+
+            <padding><Insets top="5" right="450" bottom="5" left="450"/></padding>
+
+            <VBox fx:id="centerVBOX" alignment="CENTER" spacing="9" style="-fx-background-color:gainsboro;-fx-background-radius: 10;-fx-effect: dropshadow( one-pass-box , rgba(7,43,139,1) , 1, 1 , 1 , 1);">
+
+                <padding><Insets top="30" right="20" bottom="30" left="20"/></padding>
+
+                <ImageView fx:id="loginPicImageView"  fitHeight="200.0" fitWidth="270.0">
+                    <image >
+                        <Image url="@../Photos/logo.png"/>
+                    </image>
+                </ImageView>
+
+                <Label text="Username" > </Label>
+
+                <TextField fx:id="usernameField"  promptText="Username" alignment="CENTER"
+                            onKeyReleased="#handleKeyReleased">
+                </TextField>
 
 
-    <CheckBox fx:id="rememberMeField" text="remember me" GridPane.rowIndex="5" GridPane.columnIndex="0"
-              GridPane.halignment="CENTER"
-                onAction="#handleCheckBox">
-        <padding>
-            <Insets top="50" right="50" left="50" bottom="10"/>
-        </padding>
-    </CheckBox>
-
-    <Button fx:id="loginButton" text="login" GridPane.rowIndex="6" GridPane.columnIndex="0"
-            GridPane.halignment="CENTER" prefWidth="120" onAction="#onLoginButtonClicked">
-        <graphic>
-            <ImageView>
-                <Image url="@/toolbarButtonGraphics/navigation/Forward24.gif"/>
-            </ImageView>
-        </graphic>
-    </Button>
+                <Label text="Password"  > </Label>
 
 
-</GridPane>
+                <PasswordField fx:id="passwordField" promptText="Password" alignment="CENTER" onKeyReleased="#handleKeyReleased">
+                </PasswordField>
+
+
+                <CheckBox fx:id="rememberMeField" text="remember me" onAction="#handleCheckBox">
+                    <padding>
+                        <Insets top="50" right="50" left="50" bottom="10"/>
+                    </padding>
+                </CheckBox>
+
+                <Button fx:id="loginButton" text="login" prefWidth="120" onAction="#onLoginButtonClicked">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/navigation/Forward24.gif"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+
+</BorderPane>
 
 
 

@@ -1,33 +1,52 @@
 #gridi {
-    -fx-font-size: 13pt;
-    -fx-font-family: "Segoe UI Semibold";
+
+    -fx-font-family: "sans-serif";
+
     -fx-text-fill: black;
     -fx-opacity: 1;
     -fx-alignment: center;
+    -fx-font-size: 13;
+    -fx-background-color: gainsboro;
+
+    -fx-background-radius: 5;
+
 }
 
 BorderPane {
-    -fx-background-color:gainsboro;
+
     -fx-border-color: black;
+    -fx-background-image: url("../sample/blue.jpg");
 }
 
-Button {
+#submitAddNewDiagnostic {
 
-    -fx-background-color:
-            #000000,
-            linear-gradient(#7ebcea, #60a1ff),
-            linear-gradient(#6da9ff, #60a1ff),
-            linear-gradient(#6da9ff, #60a1ff);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
-    -fx-padding: 12 30 12 30;
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
+    -fx-pref-width: 250;
+    -fx-pref-height: 250;
+    -fx-padding: 40px;
+    -fx-text-alignment: center;
+    -fx-background-radius: 50%;
+    -fx-wrap-text: true;
+    -fx-font-size: 16;
+    -fx-text-fill: #07348b;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.9), 1, 1, 1, 1);
 }
 
-Button Text {
-    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
-}
+#ShowButton{
+    -fx-pref-width: 250;
+    -fx-pref-height: 250;
+    -fx-padding: 40px;
+    -fx-text-alignment: center;
+    -fx-background-radius: 50%;
+    -fx-wrap-text: true;
+    -fx-font-size: 16;
+    -fx-text-fill: #07348b;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.9), 1, 1, 1, 1);
 
+
+
+
+}
 
 

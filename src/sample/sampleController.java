@@ -54,14 +54,13 @@ public class sampleController {
             e.printStackTrace();
         }
 
-        usernameField.setText("per@gmail.com");
-        passwordField.setText("123456");
+//        usernameField.setText("per@gmail.com");
+//        passwordField.setText("123456");
 
         // OR
 
-        //usernameField.setText("itamar@gmail.com");
-
-        //passwordField.setText("99887766");
+        usernameField.setText("itamar@gmail.com");
+        passwordField.setText("99887766");
 
 
 
@@ -82,9 +81,9 @@ public class sampleController {
         comp.setAlignment(Pos.CENTER);
         comp.setPrefHeight(200);
         comp.setPrefWidth(400);
-        Button okButton = new Button("ok");
+        Button okButton = new Button("OK");
         okButton.setPrefWidth(100);
-        Button CloseButton = new Button("close");
+        Button CloseButton = new Button("Close");
         CloseButton.setPrefWidth(100);
         comp.getChildren().add(CloseButton);
         comp.getChildren().add(okButton);
@@ -155,7 +154,7 @@ public class sampleController {
                     Stage stage = new Stage();
                     stage.setTitle("Manager Menu");
 
-                    stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+                    stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
                     ManagerMenuScreenController controller = fxmlLoader.<ManagerMenuScreenController>getController();
                     controller.initData((Stage) loginButton.getScene().getWindow());
@@ -171,7 +170,7 @@ public class sampleController {
                     Stage stage = new Stage();
                     stage.setTitle("Social Worker Menu");
 
-                    stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+                    stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
                     SocialWorkerMenuScreenController controller = fxmlLoader.<SocialWorkerMenuScreenController>getController();
                     controller.initData((Stage) loginButton.getScene().getWindow() , currentEmployee);

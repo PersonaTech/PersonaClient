@@ -1,5 +1,7 @@
 package ModulesPackage;
 
+import org.json.simple.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -15,7 +17,10 @@ public class Test implements Serializable{
     private String childId;
     private String pictureId;
 
+    private JSONObject jsonEngine;
     private Picture refToPicture;
+
+
 
 
 
@@ -23,12 +28,31 @@ public class Test implements Serializable{
 
     }
 
-    public Test(String testId, String socialWorkerId, String childId, String pictureId, Picture refToPicture) {
+    public Test(String testId, String socialWorkerId, String childId, String pictureId, JSONObject jsonEngine, Picture refToPicture) {
+        this.testId = testId;
+        this.socialWorkerId = socialWorkerId;
+        this.childId = childId;
+        this.pictureId = pictureId;
+        this.jsonEngine = jsonEngine;
+        this.refToPicture = refToPicture;
+    }
+
+    public Test(String testId, String socialWorkerId, String childId,
+                String pictureId, Picture refToPicture) {
         this.testId = testId;
         this.socialWorkerId = socialWorkerId;
         this.childId = childId;
         this.pictureId = pictureId;
         this.refToPicture = refToPicture;
+        this.jsonEngine = null;
+    }
+
+    public JSONObject getJsonEngine() {
+        return jsonEngine;
+    }
+
+    public void setJsonEngine(JSONObject jsonEngine) {
+        this.jsonEngine = jsonEngine;
     }
 
     public String getTestId() {

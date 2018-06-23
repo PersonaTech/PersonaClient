@@ -1,12 +1,14 @@
-GridPane {
-    -fx-background-color:dimgrey;
+BorderPane {
     -fx-border-color: black;
+    -fx-background-image: url("../sample/blue.jpg");
+
+
 }
 
-Label ,CheckBox{
-    -fx-text-fill: white;
+Label ,CheckBox, Button{
+    -fx-text-fill:#07348b;
     -fx-font-size: 12;
     -fx-font-family: "Comic Sans MS";
-    /*-fx-font-weight: bold;*/
+    -fx-font-weight: bold;
 }
 

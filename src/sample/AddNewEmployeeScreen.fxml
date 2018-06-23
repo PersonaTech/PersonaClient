@@ -8,6 +8,7 @@
 
 <?import javafx.scene.text.Font?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.AddNewEmployeeScreenController"
@@ -17,78 +18,104 @@
 
 
     <top>
-        <VBox alignment="CENTER" translateY="10">
-            <Label text="Add new Employee" >
-                <font> <Font size="30" ></Font> </font>
-            </Label>
+        <VBox minHeight="20">
         </VBox>
     </top>
 
-    <left>
-        <VBox alignment="CENTER" maxWidth="400" spacing="7" translateX="70" translateY="-60">
+    <right>
 
-            <Label text="Username ( Email address ) " > </Label>
-            <TextField fx:id="usernameTF" promptText="" ></TextField>
+        <VBox maxWidth="300" prefWidth="300" alignment="CENTER">
 
-            <Label text="Password" > </Label>
-             <TextField fx:id="passwordTF" promptText="" ></TextField>
+            <Button fx:id="submitAddNewEmployee"  text="Add Employee" onAction="#onSubmitButtonClicked"> </Button>
 
         </VBox>
+
+    </right>
+
+    <left>
+
+        <VBox alignment="CENTER" spacing="0" style="-fx-background-radius: 10" >
+
+            <padding><Insets top="40" right="30" bottom="40" left="30"/></padding>
+
+            <VBox alignment="CENTER"  style="-fx-background-color: #ececec;-fx-background-radius: 5 5 0 0" >
+                <Label text="Worker Personal information" style="-fx-font-size: 24">
+                </Label>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #e0e0e0;-fx-background-radius: 0 0 5 5 ">
+
+                <padding><Insets top="10" right="30" bottom="10" left="30"/></padding>
+
+                <Label text="First name" > </Label>
+                <TextField fx:id="fNameTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="Last Name" > </Label>
+                <TextField fx:id="lNameTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="Id" > </Label>
+                <TextField fx:id="idTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="Age" > </Label>
+                <TextField fx:id="ageTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="Address" > </Label>
+                <TextField fx:id="addressTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="Phone Number" > </Label>
+                <TextField fx:id="phoneNumberTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="County" > </Label>
+                <ComboBox fx:id="countyTF" promptText="select the county of the child ... " prefWidth="400" >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="South" />
+                            <String fx:value="Center" />
+                            <String fx:value="North" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+
+
+            </VBox>
+
+
+        </VBox>
+
     </left>
 
     <center>
 
-        <VBox alignment="CENTER" maxWidth="400" spacing="7">
+        <VBox alignment="CENTER" spacing="0" style="-fx-background-radius: 10" >
 
-            <Label text="First name" > </Label>
-            <TextField fx:id="fNameTF" promptText="" alignment="CENTER" ></TextField>
+            <padding><Insets top="40" right="30" bottom="40" left="30"/></padding>
 
-            <Label text="Last Name" > </Label>
-            <TextField fx:id="lNameTF" promptText="" alignment="CENTER" ></TextField>
+            <VBox alignment="CENTER"  style="-fx-background-color: #ececec;-fx-background-radius: 5 5 0 0" >
+                <Label text="User information" style="-fx-font-size: 24">
+                </Label>
+            </VBox>
 
-            <Label text="Id" > </Label>
-            <TextField fx:id="idTF" promptText="" alignment="CENTER" ></TextField>
+            <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #e0e0e0;-fx-background-radius: 0 0 5 5 ">
 
-            <Label text="Age" > </Label>
-            <TextField fx:id="ageTF" promptText="" alignment="CENTER" ></TextField>
+                <padding><Insets top="110" right="30" bottom="110" left="30"/></padding>
 
-            <Label text="Address" > </Label>
-            <TextField fx:id="addressTF" promptText="" alignment="CENTER" ></TextField>
+                <Label text="Username ( Email address ) " > </Label>
+                <TextField fx:id="usernameTF" promptText="" ></TextField>
 
-            <Label text="Phone Number" > </Label>
-            <TextField fx:id="phoneNumberTF" promptText="" alignment="CENTER" ></TextField>
+                <Label text="Password" > </Label>
+                <TextField fx:id="passwordTF" promptText="" ></TextField>
 
-            <Label text="County" > </Label>
-            <ComboBox fx:id="countyTF" promptText="select the county of the child ... " prefWidth="400" >
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="South" />
-                        <String fx:value="Center" />
-                        <String fx:value="North" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
-
+            </VBox>
 
         </VBox>
 
     </center>
 
-    <right>
-
-
-    </right>
-
     <bottom>
-
-        <HBox alignment="CENTER" translateY="-10" >
-
-            <Button fx:id="submitAddNewEmployee"  text="Add Employee" onAction="#onSubmitButtonClicked"> </Button>
-
+        <HBox alignment="BOTTOM_RIGHT">
             <Button fx:id="exitButton" text="Exit"  onAction="#onExitButtonClicked" > </Button>
-
         </HBox>
-
     </bottom>
 
 

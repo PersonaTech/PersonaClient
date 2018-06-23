@@ -8,42 +8,56 @@
 
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:id="borderPaneWatch"
             stylesheets="@../Design/watchDiag.css"
             fx:controller="sample.WatchHouseTestDiagnosticScreenController">
 
-    <top >
-        <HBox alignment="CENTER" prefHeight="50" translateY="50">
-            <Label text="Diagnosis of House test ">
-                <font>
-                    <Font name="Comic Sans MS bold" size="28.0"  ></Font>
-                </font>
-            </Label>
-        </HBox>
-    </top>
+    <right>
+        <VBox prefWidth="200"></VBox>
+    </right>
 
-    <center>
+    <center >
+
+        <VBox fx:id="centerVBOX" alignment="CENTER">
+
+            <padding><Insets top="0" right="10" bottom="0" left="10"/></padding>
+
+            <VBox fx:id="buttonVBOX" alignment="CENTER">
+
+                <Button fx:id="submitAddNewDiagnostic"  text="Show diagnosis" prefHeight="100" prefWidth="150" onAction="#onSubmitButtonClicked"> </Button>
+
+            </VBox>
+
+            <VBox fx:id="dataVBOX" alignment="CENTER" >
+
+                <padding> <Insets top="40" right="100" bottom="40" left="100"/> </padding>
+
+                <VBox fx:id="dataVBOXInner" alignment="CENTER" style="-fx-background-color: whitesmoke;-fx-background-radius: 20;">
+                </VBox>
+
+            </VBox>
+
+        </VBox>
 
     </center>
 
 
     <bottom>
 
-        <HBox alignment="CENTER" translateY="-10">
-
-            <Button fx:id="submitAddNewDiagnostic"  text="Show Diagnostic" prefHeight="40" prefWidth="150" onAction="#onSubmitButtonClicked"> </Button>
-
+        <HBox alignment="BOTTOM_RIGHT" >
             <Button fx:id="exitButton" text="Exit" prefHeight="40" prefWidth="150"  onAction="#onExitButtonClicked" > </Button>
-
         </HBox>
 
     </bottom>
 
     <left>
 
-        <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
+        <VBox alignment="CENTER"  prefWidth="200" spacing="10">
+
+            <padding><Insets top="0" right="10" bottom="0" left="10"/></padding>
 
             <Label text="Choose Diagnosis to show">
                 <font>
@@ -54,10 +68,7 @@
             </ComboBox>
 
             <ImageView fx:id="imageToShow" fitHeight="200" fitWidth="200">
-
             </ImageView>
-
-
 
         </VBox>
 

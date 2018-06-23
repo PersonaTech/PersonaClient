@@ -8,6 +8,7 @@
 
 <?import javafx.scene.text.Font?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@/Design/forms.css"
@@ -15,62 +16,70 @@
             prefHeight="400.0" prefWidth="600.0">
 
     <top>
-        <VBox alignment="CENTER" translateY="10">
-            <Label text="Add new child" >
-                <font> <Font size="30" ></Font> </font>
-            </Label>
+        <VBox minHeight="20">
         </VBox>
     </top>
 
+
     <center>
 
+        <VBox alignment="CENTER" style="-fx-background-color: #ececec;-fx-background-radius: 10" maxWidth="600" spacing="10">
+
+            <padding><Insets top="20" right="0" bottom="20" left="0"/></padding>
+
+            <VBox alignment="CENTER" >
+                <Label text="Please fill correctly all the fields below" style="-fx-font-size: 30">
+                </Label>
+            </VBox>
 
 
-        <VBox alignment="CENTER" maxWidth="400" spacing="7">
 
-            <Label text="Kindergarten name" > </Label>
-            <ComboBox fx:id="kNameFT" promptText="select the kindergarten of the child ... " prefWidth="400" >
-            </ComboBox>
+            <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #e0e0e0;">
 
-            <Label text="First name" > </Label>
-            <TextField fx:id="fNameTF" promptText="" alignment="CENTER" ></TextField>
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
-            <Label text="Last Name" > </Label>
-            <TextField fx:id="lNameTF" promptText="" alignment="CENTER" ></TextField>
+                <Label text="Kindergarten name" > </Label>
+                <ComboBox fx:id="kNameFT" promptText="select the kindergarten of the child ... " prefWidth="400"  >
+                </ComboBox>
 
-            <Label text="Id" > </Label>
-            <TextField fx:id="idTF" promptText="" alignment="CENTER" ></TextField>
+                <Label text="First name" > </Label>
+                <TextField fx:id="fNameTF" promptText="" alignment="CENTER" ></TextField>
 
-            <Label text="Age" > </Label>
-            <TextField fx:id="ageTF" promptText="" alignment="CENTER" ></TextField>
+                <Label text="Last Name" > </Label>
+                <TextField fx:id="lNameTF" promptText="" alignment="CENTER" ></TextField>
 
-            <Label text="County" > </Label>
-            <!--<TextField fx:id="countyTF" promptText="" alignment="CENTER" ></TextField>-->
+                <Label text="Id" > </Label>
+                <TextField fx:id="idTF" promptText="" alignment="CENTER" ></TextField>
 
-            <ComboBox fx:id="countyTF" promptText="select the county of the child ... " prefWidth="400" >
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="South" />
-                        <String fx:value="Center" />
-                        <String fx:value="North" />
-                    </FXCollections>
-                </items>
-            </ComboBox>
+                <Label text="Age" > </Label>
+                <TextField fx:id="ageTF" promptText="" alignment="CENTER" ></TextField>
+
+                <Label text="County" > </Label>
+
+
+                <ComboBox fx:id="countyTF" promptText="select the county of the child ... " prefWidth="400" >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="South" />
+                            <String fx:value="Center" />
+                            <String fx:value="North" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Button fx:id="submitAddNewChild"  alignment="CENTER" text="Add the child" onAction="#onSubmitButtonClicked"> </Button>
+
+            </VBox>
+
 
         </VBox>
 
     </center>
 
     <bottom>
-
-        <HBox alignment="CENTER" translateY="-10">
-
-            <Button fx:id="submitAddNewChild"  alignment="CENTER" text="Add Child" onAction="#onSubmitButtonClicked"> </Button>
-
+        <HBox alignment="BOTTOM_RIGHT">
             <Button fx:id="exitButton" text="Exit"  onAction="#onExitButtonClicked" > </Button>
-
         </HBox>
-
     </bottom>
 
 

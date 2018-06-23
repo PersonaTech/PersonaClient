@@ -1,7 +1,7 @@
 package ModulesPackage;
+import org.json.simple.JSONObject;
 
 import java.io.Serializable;
-
 /**
  * Created by itamarfredavrahami on 17/12/2017.
  */
@@ -36,6 +36,14 @@ public class PersonDrawingTest extends Test implements Serializable {
 
     public PersonDrawingTest() {
     }
+
+    public void updateTest(JSONObject object){
+
+        super.setJsonEngine(object);
+
+    }
+
+    public JSONObject getJsonFromTest() { return super.getJsonEngine();}
 
     public PersonDrawingTest(String testId, String socialWorkerId, String childId, String pictureId,Picture refToPicture,
                              int personSizePercentageSlider, int drawingSizePercentageSlider, int proportionBetweenElementsSlider,

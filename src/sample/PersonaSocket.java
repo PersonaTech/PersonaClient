@@ -14,7 +14,7 @@ public class PersonaSocket {
 
     public static final String SUCCESS ="OK";
     public static final String FAIL ="BAD";
-    public static final String SERVER = "35.196.100.247";
+    public static final String SERVER = "35.196.120.204";
     public static final String LOCALHOST = "localhost";
 
     public static ObjectOutputStream objectOutputStream ;

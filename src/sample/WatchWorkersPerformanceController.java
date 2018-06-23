@@ -3,6 +3,7 @@ package sample;
 import ModulesPackage.EmployeePerformance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -118,7 +119,11 @@ public class WatchWorkersPerformanceController {
 
             bc.getData().addAll(seriesTree, seriesPerson, seriesHouse);
 
-            borderPaneWatch.setTop(bc);
+            bc.setPadding(new Insets(10, 10, 10, 10));
+
+            borderPaneWatch.setCenter(bc);
+
+
 
 
 

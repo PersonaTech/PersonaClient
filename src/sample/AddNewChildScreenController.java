@@ -44,8 +44,6 @@ public class AddNewChildScreenController {
 
         System.out.println("ok the add new child is open now" );
 
-
-
         try {
 
             List<String> kindergartenList = new ArrayList<>();

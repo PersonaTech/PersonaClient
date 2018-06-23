@@ -17,10 +17,15 @@
             fx:id="borderPaneWatch"
             stylesheets="@../Design/watchDiag.css">
 
+    <right>
+        <VBox prefWidth="200"></VBox>
+    </right>
 
     <left>
 
-        <VBox alignment="CENTER" translateX="10" prefWidth="200" spacing="10">
+        <VBox alignment="CENTER"  prefWidth="200" spacing="10">
+
+            <padding><Insets top="0" right="10" bottom="0" left="10"/></padding>
 
             <Label text="Choose social worker">
                 <font>
@@ -62,31 +67,47 @@
 
         </VBox>
 
-
-
     </left>
 
     <bottom>
-        <HBox alignment="CENTER" translateY="-10">
-            <Button fx:id="ShowButton" text="Show Diagnosis" prefHeight="40" prefWidth="270"  onAction="#onShowButtonClicked" ></Button>
-            <Button fx:id="ExitButton" text="Exit" prefHeight="40" prefWidth="270"  onAction="#onExitButtonClicked" ></Button>
+        <HBox alignment="BOTTOM_RIGHT" >
+            <Button fx:id="ExitButton" text="Exit" prefHeight="40" prefWidth="150"  onAction="#onExitButtonClicked" > </Button>
         </HBox>
     </bottom>
 
-    <center>
+    <center >
 
+        <VBox fx:id="centerVBOX" alignment="CENTER">
 
+            <padding><Insets top="0" right="10" bottom="0" left="10"/></padding>
+
+            <VBox fx:id="buttonVBOX" alignment="CENTER">
+
+                <Button fx:id="ShowButton"  text="Show diagnosis" prefHeight="100" prefWidth="150" onAction="#onShowButtonClicked"> </Button>
+
+            </VBox>
+
+            <VBox fx:id="dataVBOX" alignment="CENTER" >
+
+                <padding> <Insets top="40" right="100" bottom="40" left="100"/> </padding>
+
+                <VBox fx:id="dataVBOXInner" alignment="CENTER" style="-fx-background-color: whitesmoke;-fx-background-radius: 20;">
+                </VBox>
+
+            </VBox>
+
+        </VBox>
 
     </center>
 
     <top >
         <HBox alignment="CENTER" prefHeight="50" translateY="50">
 
-            <Label text="Diagnosis details ">
-                <font>
-                    <Font name="Comic Sans MS bold" size="28.0"  ></Font>
-                </font>
-            </Label>
+            <!--<Label text="Diagnosis details ">-->
+                <!--<font>-->
+                    <!--<Font name="Comic Sans MS bold" size="28.0"  ></Font>-->
+                <!--</font>-->
+            <!--</Label>-->
         </HBox>
     </top>
 

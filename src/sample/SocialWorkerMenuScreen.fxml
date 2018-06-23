@@ -7,63 +7,51 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.SocialWorkerMenuScreenController"
-            stylesheets="@../Design/menu_menager.css">
+            stylesheets="@../Design/menu_menager.css" >
 
     <top>
 
-        <GridPane alignment="center"  vgap="20" gridLinesVisible="false">
+        <GridPane alignment="center"  vgap="25" gridLinesVisible="false">
 
-            <padding><Insets top="40" /></padding>
+            <padding><Insets top="50" /></padding>
 
             <columnConstraints>
                 <ColumnConstraints percentWidth="50"></ColumnConstraints>
                 <ColumnConstraints percentWidth="50"></ColumnConstraints>
-
             </columnConstraints>
 
-            <Label text="Create a .. " GridPane.rowIndex="0" GridPane.columnIndex="0" translateX="30" >
-                <font>
-                    <Font size="50"  ></Font>
-                </font>
+            <Label text="Create Menu" GridPane.rowIndex="0" GridPane.columnIndex="0" translateX="0" GridPane.halignment="CENTER">
             </Label>
 
-            <Button fx:id="addTreeTestDiagnosticButton" text="Create a Tree Test Diagnostic report" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
+            <Button fx:id="addTreeTestDiagnosticButton" text="Create a Tree Test Diagnostic report" prefHeight="40" prefWidth="300" onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER" ></Button>
-            <Button fx:id="addPersonTestDiagnosticButton" text="Create a Person Test Diagnostic report"  prefHeight="40"  prefWidth="270"  onAction="#onMenuButtonClicked"
+            <Button fx:id="addPersonTestDiagnosticButton" text="Create a Person Test Diagnostic report"  prefHeight="40"  prefWidth="300"  onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" > </Button>
-            <Button fx:id="addHouseTestDiagnosticButton" text="Create a House Test Diagnostic report"  prefHeight="40"  prefWidth="270"  onAction="#onMenuButtonClicked"
+            <Button fx:id="addHouseTestDiagnosticButton" text="Create a House Test Diagnostic report"  prefHeight="40"  prefWidth="300"  onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" > </Button>
-            <!--<Button fx:id="addGeneralDiagnosticButton" text="Create a General Diagnostic report"  prefHeight="40"  prefWidth="270"  onAction="#onMenuButtonClicked"-->
-                    <!--GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.halignment="CENTER" > </Button>-->
 
-            <ImageView GridPane.rowIndex="4" GridPane.columnIndex="0" fitHeight="150.0" fitWidth="170.0" translateX="110">
+            <ImageView GridPane.rowIndex="4" GridPane.columnIndex="0" fitHeight="150.0" fitWidth="170.0" translateX="240" translateY="40">
                 <image>
                     <Image url="@../Photos/write.png" />
                 </image>
             </ImageView>
 
-            <Label text="Watch on .. " GridPane.rowIndex="0" GridPane.columnIndex="1">
-                <font>
-                    <Font size="50" ></Font>
-                </font>
+            <Label text="Watch Menu" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.halignment="CENTER">
             </Label>
 
-            <Button fx:id="watchTreeTestDiagnosticButton" text="Watch Tree test Diagnostics" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
+            <Button fx:id="watchTreeTestDiagnosticButton" text="Watch Tree test Diagnostics" prefHeight="40" prefWidth="300" onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER"> </Button>
-            <Button fx:id="watchPersonTestDiagnosticButton" text="Watch Person test Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"
+            <Button fx:id="watchPersonTestDiagnosticButton" text="Watch Person test Diagnostics " prefHeight="40" prefWidth="300"  onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" > </Button>
-            <Button fx:id="watchHouseTestDiagnosticButton" text="Watch House test Diagnostics" prefHeight="40" prefWidth="270" onAction="#onMenuButtonClicked"
+            <Button fx:id="watchHouseTestDiagnosticButton" text="Watch House test Diagnostics" prefHeight="40" prefWidth="300" onAction="#onMenuButtonClicked"
                     GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER" > </Button>
-            <!--<Button fx:id="watchGeneralDiagnosticButton" text="Watch General Diagnostics " prefHeight="40" prefWidth="270"  onAction="#onMenuButtonClicked"-->
-                    <!--GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER" > </Button>-->
 
-            <ImageView GridPane.rowIndex="4" GridPane.columnIndex="1" fitHeight="150.0" fitWidth="250.0" translateX="80">
+            <ImageView GridPane.rowIndex="4" GridPane.columnIndex="1" fitHeight="150.0" fitWidth="250.0" translateX="200" translateY="40">
                 <image>
                     <Image url="@../Photos/watch.png" />
                 </image>

@@ -1,13 +1,10 @@
 package ModulesPackage;
+import org.json.simple.JSONObject;
 
 import java.io.Serializable;
-
 /**
  * Created by itamarfredavrahami on 17/12/2017.
  */
-
-
-
 public class HouseDrawingTest extends Test implements Serializable {
 
     private static final long serialVersionUID = 1119L;
@@ -33,6 +30,15 @@ public class HouseDrawingTest extends Test implements Serializable {
     public HouseDrawingTest() {
 
     }
+
+
+    public void updateTest(JSONObject object){
+
+        super.setJsonEngine(object);
+
+    }
+
+    public JSONObject getJsonFromTest() { return super.getJsonEngine();}
 
     public HouseDrawingTest(String testId, String socialWorkerId, String childId, String pictureId, Picture refToPicture,
                             int houseSizePercentageSlider, int drawingSizePercentageSlider, int proportionBetweenElementsSlider,

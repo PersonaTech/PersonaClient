@@ -1,28 +1,24 @@
 BorderPane {
-    -fx-background-color:dimgrey;
     -fx-border-color: black;
+    -fx-background-image: url("../sample/blue.jpg");
 }
 Label ,CheckBox{
      -fx-text-fill: white;
-     -fx-font-size: 12;
+     -fx-font-size: 20;
      -fx-font-family: "Comic Sans MS";
-     /*-fx-font-weight: bold;*/
+     -fx-font-weight: bold;
 }
 
 Button {
 
-    -fx-background-color:
-            #000000,
-            linear-gradient(#7ebcea, #60a1ff),
-            linear-gradient(#6da9ff, #60a1ff),
-            linear-gradient(#6da9ff, #60a1ff);
-    -fx-background-insets: 0,1,2,3;
-    -fx-background-radius: 3,2,2,2;
-    -fx-padding: 12 30 12 30;
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
-}
+    /*-fx-padding: 12 30 12 30;*/
+    -fx-text-fill: #07348b;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 20px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-effect: dropshadow( one-pass-box , rgba(7, 52, 139, 0.9), 1, 1 , 1 , 1);
 
-Button Text {
-    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+
 }

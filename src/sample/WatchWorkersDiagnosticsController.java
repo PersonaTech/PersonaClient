@@ -21,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,6 +44,11 @@ public class WatchWorkersDiagnosticsController {
     public ComboBox typeCB;
     public ComboBox pCB;
     public ImageView imageToShow;
+
+    public VBox centerVBOX;
+    public VBox buttonVBOX;
+    public VBox dataVBOX;
+    public VBox dataVBOXInner;
 
     //ShowButton.setDisable(true);
 
@@ -317,40 +324,81 @@ public class WatchWorkersDiagnosticsController {
                     if(u.equals(t.getTestId())){
 
                         GridPane gridpane = new GridPane();
-                        gridpane.setPadding(new Insets(15, 20, 15, 20));
-                        gridpane.setAlignment(Pos.CENTER);
+
                         gridpane.setHgap(60);
-                        gridpane.setVgap(10);
+                        gridpane.setVgap(30);
+
+                        gridpane.setPadding(new Insets(30, 40, 30, 40));
+
                         gridpane.setId("gridi");
 
-                        Label labels[] = new Label[7];
+                        Text labels[] = new Text[8];
 
-                        labels[0] = new Label("Tree size");
-                        labels[1] = new Label("Drawing size");
-                        labels[2] = new Label("Proportion");
-                        labels[3] = new Label("reference to leafs");
-                        labels[4] = new Label("Sideways movement");
-                        labels[5] = new Label("Tree location");
-                        labels[6] = new Label("Psychological diagnosis");
+                        labels[0] = new Text("Attribute");
 
-                        Label data[] = new Label[7];
+                        labels[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
 
-                        data[0] = new Label(Integer.toString(t.getTreeSizePercentage()));
-                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentage()));
-                        data[2]= new Label(Integer.toString(t.getProportionBetweenElements()));
-                        data[3] = new Label(Integer.toString(t.getReferenceToLeafs()));
-                        data[4]= new Label(Integer.toString(t.getSidewaysMovement()));
-                        data[5]= new Label(t.getTreeLocation());
-                        data[6]= new Label(t.getDiagnosticFreeText());
 
-                        for (int i=0 ; i < 7 ; i++) {
+                        labels[1] = new Text("Tree size");
+                        labels[1].setStyle("-fx-font-weight: bold;");
+                        labels[2] = new Text("Drawing size");
+                        labels[2].setStyle("-fx-font-weight: bold;");
+                        labels[3] = new Text("Proportion");
+                        labels[3].setStyle("-fx-font-weight: bold;");
+                        labels[4] = new Text("Reference to leafs");
+                        labels[4].setStyle("-fx-font-weight: bold;");
+                        labels[5] = new Text("Sideways movement");
+                        labels[5].setStyle("-fx-font-weight: bold;");
+                        labels[6] = new Text("Tree location");
+                        labels[6].setStyle("-fx-font-weight: bold;");
+                        labels[7] = new Text("Psychological diagnosis");
+                        labels[7].setStyle("-fx-font-weight: bold;");
+
+                        Text data[] = new Text[8];
+
+                        data[0] = new Text("Value");
+
+                        data[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
+
+
+                        data[1] = new Text(Integer.toString(t.getTreeSizePercentage())+ " %");
+                        data[2]= new Text(Integer.toString(t.getDrawingSizePercentage())+ " %");
+                        data[3]= new Text(Integer.toString(t.getProportionBetweenElements())+ " %");
+                        data[4] = new Text(Integer.toString(t.getReferenceToLeafs()));
+                        data[5]= new Text(Integer.toString(t.getSidewaysMovement())+ " %");
+                        data[6]= new Text(t.getTreeLocation());
+                        data[7]= new Text(t.getDiagnosticFreeText());
+
+                        for (int i=0 ; i < 8 ; i++) {
 
                             gridpane.add(labels[i] , 0 , i );
-                            gridpane.add(data[i] , 1 , i );
+
+                            if (i<7)
+                                gridpane.add(data[i] , 1 , i );
 
                         }
 
-                        borderPaneWatch.setCenter(gridpane);
+                        Label getDiagnosticFreeTextData = new Label(t.getDiagnosticFreeText());
+
+                        getDiagnosticFreeTextData.setStyle("-fx-wrap-text: true");
+
+                        gridpane.add(getDiagnosticFreeTextData , 1 , 7);
+
+                        buttonVBOX.getChildren().remove(ShowButton);
+
+                        VBox stam = new VBox();
+
+                        stam.setAlignment(Pos.CENTER);
+                        stam.setPadding(new Insets(30, 0, 30, 0));
+
+                        Text checlll = new Text("Diagnostic's Details Results");
+
+                        checlll.setStyle("-fx-font-weight: bold;-fx-font-size: 20;-fx-text-fill: #07348b;");
+
+                        stam.getChildren().add(checlll);
+
+                        dataVBOXInner.getChildren().add(stam);
+                        dataVBOXInner.getChildren().add(gridpane);
 
                         System.out.println("complete load");
                     }
@@ -365,48 +413,83 @@ public class WatchWorkersDiagnosticsController {
                     if(u.equals(t.getTestId())){
 
                         GridPane gridpane = new GridPane();
-                        gridpane.setPadding(new Insets(15, 20, 15, 20));
-                        gridpane.setAlignment(Pos.CENTER);
+
                         gridpane.setHgap(60);
-                        gridpane.setVgap(10);
+                        gridpane.setVgap(15);
+
+                        gridpane.setPadding(new Insets(30, 40, 30, 40));
+
                         gridpane.setId("gridi");
 
-                        Label labels[] = new Label[11];
+                        Text labels[] = new Text[12];
 
-                        labels[0] = new Label("person size");
-                        labels[1] = new Label("Drawing size");
-                        labels[2] = new Label("Proportion");
-                        labels[3] = new Label("headIsExist");
-                        labels[4] = new Label("LegsIsExist");
-                        labels[5] = new Label("ArmsIsExist");
-                        labels[6] = new Label("eyesIsExist");
-                        labels[7] = new Label("mouthIsExist");
-                        labels[8] = new Label("hairIsExist");
-                        labels[9] = new Label("numberOfClothing");
-                        labels[10] = new Label("Psychological diagnosis");
 
-                        Label data[] = new Label[11];
+                        labels[0] = new Text("Attribute");
 
-                        data[0] = new Label(Integer.toString(t.getPersonSizePercentageSlider()));
-                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
-                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
-                        data[3] = new Label(t.getHeadIsExist().toString());
-                        data[4]= new Label(t.getLegsIsExist().toString());
-                        data[5]= new Label(t.getArmsIsExist().toString());
-                        data[6]= new Label(t.getEyesIsExist().toString());
-                        data[7]= new Label(t.getEyesIsExist().toString());
-                        data[8]= new Label(t.getEyesIsExist().toString());
-                        data[9]= new Label(t.getEyesIsExist().toString());
-                        data[10]= new Label(t.getDiagnosticFreeText());
+                        labels[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
 
-                        for (int i=0 ; i < 11 ; i++) {
+                        labels[1] = new Text("person size");
+                        labels[2] = new Text("Drawing size");
+                        labels[3] = new Text("Proportion");
+                        labels[4] = new Text("headIsExist");
+                        labels[5] = new Text("LegsIsExist");
+                        labels[6] = new Text("ArmsIsExist");
+                        labels[7] = new Text("eyesIsExist");
+                        labels[8] = new Text("mouthIsExist");
+                        labels[9] = new Text("hairIsExist");
+                        labels[10] = new Text("numberOfClothing");
+                        labels[11] = new Text("Psychological diagnosis");
+
+                        Text data[] = new Text[12];
+
+
+                        data[0] = new Text("Value");
+
+                        data[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
+
+                        data[1] = new Text(Integer.toString(t.getPersonSizePercentageSlider()));
+                        data[2]= new Text(Integer.toString(t.getDrawingSizePercentageSlider()));
+                        data[3]= new Text(Integer.toString(t.getProportionBetweenElementsSlider()));
+                        data[4] = new Text(t.getHeadIsExist().toString());
+                        data[5]= new Text(t.getLegsIsExist().toString());
+                        data[6]= new Text(t.getArmsIsExist().toString());
+                        data[7]= new Text(t.getEyesIsExist().toString());
+                        data[8]= new Text(t.getEyesIsExist().toString());
+                        data[9]= new Text(t.getEyesIsExist().toString());
+                        data[10]= new Text(t.getEyesIsExist().toString());
+                        data[11]= new Text(t.getDiagnosticFreeText());
+
+                        for (int i=0 ; i < 12 ; i++) {
 
                             gridpane.add(labels[i] , 0 , i );
-                            gridpane.add(data[i] , 1 , i );
+
+                            if (i<11)
+                                gridpane.add(data[i] , 1 , i );
+
 
                         }
 
-                        borderPaneWatch.setCenter(gridpane);
+                        Label getDiagnosticFreeTextData = new Label(t.getDiagnosticFreeText());
+
+                        getDiagnosticFreeTextData.setStyle("-fx-wrap-text: true");
+
+                        gridpane.add(getDiagnosticFreeTextData , 1 , 11);
+
+                        buttonVBOX.getChildren().remove(ShowButton);
+
+                        VBox stam = new VBox();
+
+                        stam.setAlignment(Pos.CENTER);
+                        stam.setPadding(new Insets(30, 0, 30, 0));
+
+                        Text checlll = new Text("Diagnostic's Details Results");
+
+                        checlll.setStyle("-fx-font-weight: bold;-fx-font-size: 20;-fx-text-fill: #07348b;");
+
+                        stam.getChildren().add(checlll);
+
+                        dataVBOXInner.getChildren().add(stam);
+                        dataVBOXInner.getChildren().add(gridpane);
 
                         System.out.println("complete load");
                     }
@@ -421,40 +504,84 @@ public class WatchWorkersDiagnosticsController {
                     if(u.equals(t.getTestId())){
 
                         GridPane gridpane = new GridPane();
-                        gridpane.setPadding(new Insets(15, 20, 15, 20));
-                        gridpane.setAlignment(Pos.CENTER);
+
                         gridpane.setHgap(60);
-                        gridpane.setVgap(10);
+                        gridpane.setVgap(30);
+
+                        gridpane.setPadding(new Insets(30, 40, 30, 40));
+
                         gridpane.setId("gridi");
 
-                        Label labels[] = new Label[7];
+                        Text labels[] = new Text[8];
 
-                        labels[0] = new Label("house size");
-                        labels[1] = new Label("Drawing size");
-                        labels[2] = new Label("Proportion");
-                        labels[3] = new Label("reference To Door and Windows");
-                        labels[4] = new Label("reference To Roof");
-                        labels[5] = new Label("walls in the painting");
-                        labels[6] = new Label("Psychological diagnosis");
+                        labels[0] = new Text("Attribute");
 
-                        Label data[] = new Label[7];
+                        labels[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
 
-                        data[0] = new Label(Integer.toString(t.getHouseSizePercentageSlider()));
-                        data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
-                        data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
-                        data[3] = new Label(Integer.toString(t.getReferenceToDoorWindowsSlider()));
-                        data[4]= new Label(Integer.toString(t.getReferenceToRoofSlider()));
-                        data[5]= new Label(t.getYesNoWall());
-                        data[6]= new Label(t.getDiagnosticFreeText());
 
-                        for (int i=0 ; i < 7 ; i++) {
+                        labels[1] = new Text("House size");
+                        labels[1].setStyle("-fx-font-weight: bold;");
+                        labels[2] = new Text("Drawing size");
+                        labels[2].setStyle("-fx-font-weight: bold;");
+                        labels[3] = new Text("Proportion");
+                        labels[3].setStyle("-fx-font-weight: bold;");
+                        labels[4] = new Text("Reference To Door and Windows");
+                        labels[4].setStyle("-fx-font-weight: bold;");
+                        labels[5] = new Text("Reference To Roof");
+                        labels[5].setStyle("-fx-font-weight: bold;");
+                        labels[6] = new Text("Walls in the painting");
+                        labels[6].setStyle("-fx-font-weight: bold;");
+                        labels[7] = new Text("Psychological diagnosis");
+                        labels[7].setStyle("-fx-font-weight: bold;");
+
+                        Text data[] = new Text[8];
+
+                        data[0] = new Text("Value");
+                        data[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
+
+                        data[1] = new Text(Integer.toString(t.getHouseSizePercentageSlider()) + " %");
+                        data[2]= new Text(Integer.toString(t.getDrawingSizePercentageSlider())+ " %");
+                        data[3]= new Text(Integer.toString(t.getProportionBetweenElementsSlider())+ " %");
+                        data[4] = new Text(Integer.toString(t.getReferenceToDoorWindowsSlider())+ " %");
+                        data[5]= new Text(Integer.toString(t.getReferenceToRoofSlider())+ " %");
+                        data[6]= new Text(t.getYesNoWall());
+
+                        data[7]= new Text(t.getDiagnosticFreeText());
+                        data[7].setStyle("-fx-wrap-text: true");
+
+                        for (int i=0 ; i < 8 ; i++) {
 
                             gridpane.add(labels[i] , 0 , i );
-                            gridpane.add(data[i] , 1 , i );
+
+                            if (i<7)
+                                gridpane.add(data[i] , 1 , i );
 
                         }
 
-                        borderPaneWatch.setCenter(gridpane);
+                        Label getDiagnosticFreeTextData = new Label(t.getDiagnosticFreeText());
+
+                        getDiagnosticFreeTextData.setStyle("-fx-wrap-text: true");
+
+                        gridpane.add(getDiagnosticFreeTextData , 1 , 7);
+
+
+                        buttonVBOX.getChildren().remove(ShowButton);
+
+                        VBox stam = new VBox();
+
+                        stam.setAlignment(Pos.CENTER);
+                        stam.setPadding(new Insets(30, 0, 30, 0));
+
+                        Text checlll = new Text("Diagnostic's Details Results");
+
+                        checlll.setStyle("-fx-font-weight: bold;-fx-font-size: 20;-fx-text-fill: #07348b;");
+
+
+
+                        stam.getChildren().add(checlll);
+
+                        dataVBOXInner.getChildren().add(stam);
+                        dataVBOXInner.getChildren().add(gridpane);
 
                         System.out.println("complete load");
                     }

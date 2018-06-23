@@ -20,8 +20,8 @@ public class ManagerMenuScreenController {
     private Button watchPerformanceButton;
     @FXML
     private Button watchDiagnosticsButton;
-    @FXML
-    private Button watchAutoDiagnosticsButton;
+
+    //private Button watchAutoDiagnosticsButton;
     @FXML
     private Button exitButton;
 
@@ -59,11 +59,6 @@ public class ManagerMenuScreenController {
             System.out.println("4");
             lunchWorkersDiagnosticsScreen(event);
 
-        }else if(event.getSource().equals(watchAutoDiagnosticsButton)){
-
-            System.out.println("5");
-            lunchAlgorithmsDiagnosticsScreen(event);
-
         }else if(event.getSource().equals(exitButton)){
 
             System.out.println("6");
@@ -86,7 +81,7 @@ public class ManagerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Add new Employee");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             AddNewEmployeeScreenController controller = fxmlLoader.<AddNewEmployeeScreenController>getController();
             controller.initData((Stage) addSwButton.getScene().getWindow());
@@ -114,7 +109,7 @@ public class ManagerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Add new Child");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             AddNewChildScreenController controller = fxmlLoader.<AddNewChildScreenController>getController();
             controller.initData((Stage) addChildButton.getScene().getWindow());
@@ -140,7 +135,7 @@ public class ManagerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("watch performance ");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             WatchWorkersPerformanceController controller = fxmlLoader.<WatchWorkersPerformanceController>getController();
             controller.initData((Stage) watchPerformanceButton.getScene().getWindow());
@@ -169,7 +164,7 @@ public class ManagerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("watch diagnostics ");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             WatchWorkersDiagnosticsController controller = fxmlLoader.<WatchWorkersDiagnosticsController>getController();
             controller.initData((Stage) watchDiagnosticsButton.getScene().getWindow());
@@ -188,34 +183,7 @@ public class ManagerMenuScreenController {
     }
 
 
-    private void lunchAlgorithmsDiagnosticsScreen(Event event) {
 
-
-        try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("WatchAlgoDiagnostics.fxml"));
-
-            Stage stage = new Stage();
-            stage.setTitle("watch diagnostics - algo");
-
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 500));
-
-            WatchAlgoDiagnosticsController controller = fxmlLoader.<WatchAlgoDiagnosticsController>getController();
-            controller.initData((Stage) watchAutoDiagnosticsButton.getScene().getWindow());
-
-            watchAutoDiagnosticsButton.getScene().getWindow().hide();
-            stage.show();
-
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-
-
-
-    }
 
 
 

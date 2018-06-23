@@ -133,7 +133,6 @@ public class AddNewEmployeeScreenController {
 
                 }
 
-
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

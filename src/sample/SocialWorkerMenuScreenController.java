@@ -100,12 +100,6 @@ public class SocialWorkerMenuScreenController {
 
 
 
-
-
-
-
-
-
     }
 
     public void lunchTreeTestDiagnosticScreen(Event event){
@@ -118,7 +112,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Tree Test Diagnostic");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             AddTreeTestDiagnosticController controller = fxmlLoader.<AddTreeTestDiagnosticController>getController();
             controller.initData((Stage) addTreeTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
@@ -143,7 +137,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Person Test Diagnostic");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             AddPersonTestDiagnosticController controller = fxmlLoader.<AddPersonTestDiagnosticController>getController();
             controller.initData( (Stage)addPersonTestDiagnosticButton.getScene().getWindow() , this.refToEmployee );
@@ -173,7 +167,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("House Test Diagnostic");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             AddHouseTestDiagnosticController controller = fxmlLoader.<AddHouseTestDiagnosticController>getController();
             controller.initData((Stage) addHouseTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
@@ -200,7 +194,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Tree Test Watch");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             WatchTreeTestDiagnosticScreenController controller = fxmlLoader.<WatchTreeTestDiagnosticScreenController>getController();
             controller.initData((Stage) watchTreeTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
@@ -230,7 +224,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("Person Test Watch");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             WatchPersonTestDiagnosticScreenController controller = fxmlLoader.<WatchPersonTestDiagnosticScreenController>getController();
             controller.initData((Stage) watchPersonTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);
@@ -257,7 +251,7 @@ public class SocialWorkerMenuScreenController {
             Stage stage = new Stage();
             stage.setTitle("House Test Watch");
 
-            stage.setScene(new Scene(fxmlLoader.load(), 830, 600));
+            stage.setScene(new Scene(fxmlLoader.load(), 1300, 800));
 
             WatchHouseTestDiagnosticScreenController controller = fxmlLoader.<WatchHouseTestDiagnosticScreenController>getController();
             controller.initData((Stage) watchHouseTestDiagnosticButton.getScene().getWindow() , this.refToEmployee);

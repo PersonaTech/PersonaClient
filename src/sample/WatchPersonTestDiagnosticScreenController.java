@@ -17,6 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,6 +38,11 @@ public class WatchPersonTestDiagnosticScreenController {
     public BorderPane borderPaneWatch;
     public ImageView imageToShow;
 
+    public VBox buttonVBOX;
+    public VBox dataVBOX;
+    public VBox dataVBOXInner;
+
+
     private Stage refToParent;
     private List<PersonDrawingTest> personDrawingTestList;
 
@@ -43,6 +50,8 @@ public class WatchPersonTestDiagnosticScreenController {
 
         this.refToParent = refToParent;
         this.refToEmployee = refToEmployee;
+
+        submitAddNewDiagnostic.setDisable(true);
 
         System.out.println(refToEmployee.toString());
         System.out.println("uid ::: " + refToEmployee.getuId());
@@ -116,48 +125,83 @@ public class WatchPersonTestDiagnosticScreenController {
             if(testID.equals(t.getTestId())){
 
                 GridPane gridpane = new GridPane();
-                gridpane.setPadding(new Insets(15, 20, 15, 20));
-                gridpane.setAlignment(Pos.CENTER);
+
                 gridpane.setHgap(60);
-                gridpane.setVgap(10);
+                gridpane.setVgap(15);
+
+                gridpane.setPadding(new Insets(30, 40, 30, 40));
+
                 gridpane.setId("gridi");
 
-                Label labels[] = new Label[11];
+                Text labels[] = new Text[12];
 
-                labels[0] = new Label("person size");
-                labels[1] = new Label("Drawing size");
-                labels[2] = new Label("Proportion");
-                labels[3] = new Label("headIsExist");
-                labels[4] = new Label("LegsIsExist");
-                labels[5] = new Label("ArmsIsExist");
-                labels[6] = new Label("eyesIsExist");
-                labels[7] = new Label("mouthIsExist");
-                labels[8] = new Label("hairIsExist");
-                labels[9] = new Label("numberOfClothing");
-                labels[10] = new Label("Psychological diagnosis");
 
-                Label data[] = new Label[11];
+                labels[0] = new Text("Attribute");
 
-                data[0] = new Label(Integer.toString(t.getPersonSizePercentageSlider()));
-                data[1]= new Label(Integer.toString(t.getDrawingSizePercentageSlider()));
-                data[2]= new Label(Integer.toString(t.getProportionBetweenElementsSlider()));
-                data[3] = new Label(t.getHeadIsExist().toString());
-                data[4]= new Label(t.getLegsIsExist().toString());
-                data[5]= new Label(t.getArmsIsExist().toString());
-                data[6]= new Label(t.getEyesIsExist().toString());
-                data[7]= new Label(t.getEyesIsExist().toString());
-                data[8]= new Label(t.getEyesIsExist().toString());
-                data[9]= new Label(t.getEyesIsExist().toString());
-                data[10]= new Label(t.getDiagnosticFreeText());
+                labels[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
 
-                for (int i=0 ; i < 11 ; i++) {
+                labels[1] = new Text("person size");
+                labels[2] = new Text("Drawing size");
+                labels[3] = new Text("Proportion");
+                labels[4] = new Text("headIsExist");
+                labels[5] = new Text("LegsIsExist");
+                labels[6] = new Text("ArmsIsExist");
+                labels[7] = new Text("eyesIsExist");
+                labels[8] = new Text("mouthIsExist");
+                labels[9] = new Text("hairIsExist");
+                labels[10] = new Text("numberOfClothing");
+                labels[11] = new Text("Psychological diagnosis");
+
+                Text data[] = new Text[12];
+
+
+                data[0] = new Text("Value");
+
+                data[0].setStyle("-fx-font-weight: bold;-fx-font-size: 15;-fx-text-fill: #6da9ff;-fx-font-weight: bold;-fx-text-alignment: center");
+
+                data[1] = new Text(Integer.toString(t.getPersonSizePercentageSlider()));
+                data[2]= new Text(Integer.toString(t.getDrawingSizePercentageSlider()));
+                data[3]= new Text(Integer.toString(t.getProportionBetweenElementsSlider()));
+                data[4] = new Text(t.getHeadIsExist().toString());
+                data[5]= new Text(t.getLegsIsExist().toString());
+                data[6]= new Text(t.getArmsIsExist().toString());
+                data[7]= new Text(t.getEyesIsExist().toString());
+                data[8]= new Text(t.getEyesIsExist().toString());
+                data[9]= new Text(t.getEyesIsExist().toString());
+                data[10]= new Text(t.getEyesIsExist().toString());
+                data[11]= new Text(t.getDiagnosticFreeText());
+
+                for (int i=0 ; i < 12 ; i++) {
 
                     gridpane.add(labels[i] , 0 , i );
-                    gridpane.add(data[i] , 1 , i );
+
+                    if (i<11)
+                        gridpane.add(data[i] , 1 , i );
+
 
                 }
 
-                borderPaneWatch.setCenter(gridpane);
+                Label getDiagnosticFreeTextData = new Label(t.getDiagnosticFreeText());
+
+                getDiagnosticFreeTextData.setStyle("-fx-wrap-text: true");
+
+                gridpane.add(getDiagnosticFreeTextData , 1 , 11);
+
+                buttonVBOX.getChildren().remove(submitAddNewDiagnostic);
+
+                VBox stam = new VBox();
+
+                stam.setAlignment(Pos.CENTER);
+                stam.setPadding(new Insets(30, 0, 30, 0));
+
+                Text checlll = new Text("Diagnostic's Details Results");
+
+                checlll.setStyle("-fx-font-weight: bold;-fx-font-size: 20;-fx-text-fill: #07348b;");
+
+                stam.getChildren().add(checlll);
+
+                dataVBOXInner.getChildren().add(stam);
+                dataVBOXInner.getChildren().add(gridpane);
 
                 System.out.println("complete load");
             }
